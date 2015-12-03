@@ -125,6 +125,7 @@ function _cleanup(el) {
 function _onMouseOver() {
     let _this = $(this);
     let options = _this.data(TOOLY_OPTIONS);
+    console.log(options);
     let toolyContainer = $(toolyTpl).attr('id', _getToolyContainerId(options.id));
     _this.addClass(`tooly ${_getToolyTargetClass(options.id)}`);
     toolyContainer.find('.body-wrapper').html(options.html);
@@ -156,8 +157,9 @@ function _destroy(el) {
         .off('mouseover', _onMouseOver)
         .off('mouseout', _onMouseOut);
 }
-$.fn.tooly = function (options) {
-    let _this = this;
+
+function _tooly(options) {
+    let _this = $(this);
     let type = $.type(options);
     if (type === 'object' || type === 'undefined') {
         options = $.extend({}, DEFAULT_OPTIONS, options);
@@ -172,7 +174,7 @@ $.fn.tooly = function (options) {
     } else if (type === 'string') {
         let existingOptions = _this.data(TOOLY_OPTIONS);
         if (!existingOptions) {
-            throw new NotInitializedError('tooly not initialized');
+            throw new NotInitializedError('tooly not initialized!');
         }
         switch (options) {
         case 'destroy':
@@ -181,5 +183,11 @@ $.fn.tooly = function (options) {
         default:
         }
     }
-    return _this;
+}
+$.fn.tooly = function (options) {
+    for (let i = 0; i < this.length; i++) {
+        _tooly.call(this[i], options);
+    }
+
+    return this;
 };
