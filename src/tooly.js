@@ -61,7 +61,7 @@ function _onMouseOver() {
     let toolyContainer = $(toolyTpl).attr('id', _getToolyContainerId(options.id));
     _this.addClass(`tooly ${_getToolyTargetClass(options.id)}`);
     $body.append(toolyContainer);
-    toolyContainer.find('.body-wrapper').html(options.html);
+    // toolyContainer.find('.body-wrapper').html(options.html);
     $body.append(`<style id="${_getToolyStyleId(options.id)}">${_getStyles(_this,toolyContainer)}</style>`);
 }
 
