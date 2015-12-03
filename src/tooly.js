@@ -41,9 +41,6 @@ function _getStyles(el, container) {
         anchorStyles = createStyles(`${containerId}:after`, {
             left: '20px'
         });
-    // return {
-    //     'margin-left': -width / 2
-    // };
     return containerStyles + anchorStyles;
 }
 
