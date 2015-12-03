@@ -55,6 +55,24 @@ function _getToolyTargetClass(id) {
 function _getToolyStyleId(id) {
     return STYLE_PREFIX + id;
 }
+
+function _onMouseOver() {
+    let _this = this;
+    console.log(_this);
+    let options = _this.data(TOOLY_OPTIONS);
+    let toolyContainer = $(toolyTpl).attr('id', _getToolyContainerId(options.id));
+    _this.addClass(`tooly ${_getToolyTargetClass(options.id)}`);
+    $body.append(toolyContainer);
+    toolyContainer.find('.body-wrapper').html(options.html);
+    $body.append(`<style id="${_getToolyStyleId(options.id)}">${_getStyles(_this,toolyContainer)}</style>`);
+}
+
+function _onMouseOut() {
+    let _this = this;
+    let options = _this.data(TOOLY_OPTIONS);
+    $body.find(`#${_getToolyContainerId(options.id)}, #${_getToolyStyleId(options.id)}`).remove();
+    elMap.delete(_this);
+}
 $.fn.tooly = function (options) {
     let _this = this;
     let type = $.type(options);
@@ -63,19 +81,8 @@ $.fn.tooly = function (options) {
         options.id = nextUID();
         _this.data(TOOLY_OPTIONS, options);
         !elMap.has(_this) && elMap.set(_this, options);
-        _this.mouseover(() => {
-            let _this = this;
-            let toolyContainer = $(toolyTpl).attr('id', _getToolyContainerId(options.id));
-            _this.addClass(`tooly ${_getToolyTargetClass(options.id)}`);
-            $body.append(toolyContainer);
-            $body.append(`<style id="${_getToolyStyleId(options.id)}">${_getStyles(_this,toolyContainer)}</style>`);
-        });
-        _this.mouseout(() => {
-            let _this = this;
-            let options = _this.data(TOOLY_OPTIONS);
-            $body.find(`#${_getToolyContainerId(options.id)}, #${_getToolyStyleId(options.id)}`).remove();
-            elMap.delete(_this);
-        });
+        _this.mouseover(_onMouseOver.bind(_this));
+        _this.mouseout(_onMouseOut.bind(_this));
     }
     return _this;
 };
