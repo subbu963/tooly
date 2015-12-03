@@ -106,6 +106,16 @@ function _getToolyStyleId(id) {
     return STYLE_PREFIX + id;
 }
 
+function _cleanup(el) {
+    let options = el.data(TOOLY_OPTIONS);
+    let targetClass = `tooly ${_getToolyTargetClass(options.id)}`;
+    $body.find(targetClass).removeClass(targetClass);
+    $body.find(
+        `#${_getToolyContainerId(options.id)},
+         #${_getToolyStyleId(options.id)}`
+    ).remove();
+}
+
 function _onMouseOver() {
     let _this = this;
     let options = _this.data(TOOLY_OPTIONS);
@@ -113,19 +123,25 @@ function _onMouseOver() {
     _this.addClass(`tooly ${_getToolyTargetClass(options.id)}`);
     toolyContainer.find('.body-wrapper').html(options.html);
     $body.append(toolyContainer);
-    $body.append(
-        `<style id="${_getToolyStyleId(options.id)}">
-        ${_getStyles(_this,toolyContainer,options.position)}</style>`
-    );
+    try {
+        $body.append(
+            `<style id="${_getToolyStyleId(options.id)}">
+            ${_getStyles(_this,toolyContainer,options.position)}</style>`
+        );
+    } catch (e) {
+        _cleanup(_this);
+        console.log('cleaning up!');
+        if (e instanceof ViewPortTooSmallError) {
+            console.error(e.message);
+        } else {
+            throw e;
+        }
+    }
 }
 
 function _onMouseOut() {
     let _this = this;
-    let options = _this.data(TOOLY_OPTIONS);
-    $body.find(
-        `#${_getToolyContainerId(options.id)},
-         #${_getToolyStyleId(options.id)}`
-    ).remove();
+    _cleanup(_this);
 }
 $.fn.tooly = function (options) {
     let _this = this;
