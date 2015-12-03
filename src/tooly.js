@@ -6,8 +6,11 @@ import {
 from 'utils';
 import toolyTpl from 'tooly.html!text';
 import 'tooly.scss!';
-const DEFAULT_OPTIONS = {
+import InvalidPositionError from './errors/InvalidPositionError';
+import ViewPortTooSmallError from './errors/ViewPortTooSmallError';
 
+const DEFAULT_OPTIONS = {
+    position: 'top'
 };
 const TARGET_CLASS_PREFIX = 'tooly-id-';
 const CONTAINER_CLASS_PREFIX = 'tooly-container-id-';
@@ -35,9 +38,6 @@ function _getNextPostion(position) {
 
 function _getStyles(el, container, position = 'top', preferredPosition) {
     preferredPosition = preferredPosition || position;
-    if (POSITIONS_ACCEPTED.indexOf(position) === -1) {
-        throw new Error(`${position} not recognized!`);
-    }
     let options = el.data(TOOLY_OPTIONS);
     let elWidth = el.width(),
         elHeight = el.height(),
@@ -53,8 +53,8 @@ function _getStyles(el, container, position = 'top', preferredPosition) {
         containerTop -= containerHeight;
         if (containerTop < 0) {
             let nextPosition = _getNextPostion(position);
-            if (nextPosition === POSITIONS_ACCEPTED.indexOf(position)) {
-                throw new Error('viewport too small!');
+            if (nextPosition === POSITIONS_ACCEPTED.indexOf(preferredPosition)) {
+                throw new ViewPortTooSmallError('viewport too small!');
             }
             return _getStyles(el, container, POSITIONS_ACCEPTED[nextPosition], preferredPosition);
         }
@@ -75,7 +75,7 @@ function _getStyles(el, container, position = 'top', preferredPosition) {
         if (containerTop + containerHeight > currWinHeight) {
             let nextPosition = _getNextPostion(position);
             if (nextPosition === POSITIONS_ACCEPTED.indexOf(preferredPosition)) {
-                throw new Error('viewport too small!');
+                throw new ViewPortTooSmallError('viewport too small!');
             }
             return _getStyles(el, container, POSITIONS_ACCEPTED[nextPosition], preferredPosition);
         }
@@ -111,15 +111,21 @@ function _onMouseOver() {
     let options = _this.data(TOOLY_OPTIONS);
     let toolyContainer = $(toolyTpl).attr('id', _getToolyContainerId(options.id));
     _this.addClass(`tooly ${_getToolyTargetClass(options.id)}`);
+    toolyContainer.find('.body-wrapper').html(options.html);
     $body.append(toolyContainer);
-    // toolyContainer.find('.body-wrapper').html(options.html);
-    $body.append(`<style id="${_getToolyStyleId(options.id)}">${_getStyles(_this,toolyContainer,'bottom')}</style>`);
+    $body.append(
+        `<style id="${_getToolyStyleId(options.id)}">
+        ${_getStyles(_this,toolyContainer,options.position)}</style>`
+    );
 }
 
 function _onMouseOut() {
     let _this = this;
     let options = _this.data(TOOLY_OPTIONS);
-    $body.find(`#${_getToolyContainerId(options.id)}, #${_getToolyStyleId(options.id)}`).remove();
+    $body.find(
+        `#${_getToolyContainerId(options.id)},
+         #${_getToolyStyleId(options.id)}`
+    ).remove();
 }
 $.fn.tooly = function (options) {
     let _this = this;
@@ -127,6 +133,9 @@ $.fn.tooly = function (options) {
     if (type === 'object' || type === 'undefined') {
         options = $.extend({}, DEFAULT_OPTIONS, options);
         options.id = nextUID();
+        if (POSITIONS_ACCEPTED.indexOf(options.position) === -1) {
+            throw new InvalidPositionError(`${options.position} not recognized!`);
+        }
         _this.data(TOOLY_OPTIONS, options);
         _this.mouseover(_onMouseOver.bind(_this));
         _this.mouseout(_onMouseOut.bind(_this));

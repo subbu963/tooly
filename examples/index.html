@@ -9,6 +9,12 @@
 <body>
     <div><a id="target" href="http://www.doge.com">doge.com</a></div>
 </body>
+<script type="text/template" id="doge">
+    <div>
+        <img src="/examples/doge_dp.jpg" style="height:100px;width:auto;" alt="">
+    </div>
+    <p>DOGE</p>
+</script>
 <script src="../node_modules/jquery/dist/jquery.js"></script>
 <script src="../src/jspm_packages/system.js"></script>
 <script src="../src/config.js"></script>
@@ -16,7 +22,10 @@
 System
     .import('tooly.js')
     .then(function(argument) {
-        $('#target').tooly();
+        $('#target').tooly({
+            html: $('#doge').html(),
+            position: 'to'
+        });
     });
 </script>
 
