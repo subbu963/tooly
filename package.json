@@ -7,7 +7,8 @@
       "baseURL": "src"
     },
     "dependencies": {
-      "scss": "github:theefer/plugin-sass@master"
+      "scss": "github:theefer/plugin-sass@master",
+      "text": "github:systemjs/plugin-text@^0.0.3"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.24",

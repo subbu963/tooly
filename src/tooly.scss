@@ -1,12 +1,23 @@
 #target {
     position: relative;
-    top: 30px;
+    top: 90px;
     left: 90px;
 }
 
-.tooly:after {
-    content: '';
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 10px solid rgba(0, 0, 0, 0.1);
+.tooly-container {
+    position: fixed;
+    &:after {
+        position: absolute;
+        content: '';
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid black;
+        pointer-events: none;
+        display: block;
+    }
+    .body-wrapper {
+        height: 60px;
+        width: 60px;
+        background-color: red;
+    }
 }
