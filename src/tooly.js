@@ -9,6 +9,7 @@ import 'tooly.scss!';
 import InvalidPositionError from './errors/InvalidPositionError';
 import ViewPortTooSmallError from './errors/ViewPortTooSmallError';
 import NotInitializedError from './errors/NotInitializedError';
+import AlreadyInitializedError from './errors/AlreadyInitializedError';
 
 const DEFAULT_OPTIONS = {
     position: 'top'
@@ -161,7 +162,11 @@ function _destroy(el) {
 function _tooly(options) {
     let _this = $(this);
     let type = $.type(options);
+    let existingOptions = _this.data(TOOLY_OPTIONS);
     if (type === 'object' || type === 'undefined') {
+        if (existingOptions) {
+            throw new AlreadyInitializedError('tooly already initialized!');
+        }
         options = $.extend({}, DEFAULT_OPTIONS, options);
         options.id = nextUID();
         if (POSITIONS_ACCEPTED.indexOf(options.position) === -1) {
@@ -172,7 +177,6 @@ function _tooly(options) {
             .mouseover(_onMouseOver)
             .mouseout(_onMouseOut);
     } else if (type === 'string') {
-        let existingOptions = _this.data(TOOLY_OPTIONS);
         if (!existingOptions) {
             throw new NotInitializedError('tooly not initialized!');
         }
