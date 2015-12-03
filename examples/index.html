@@ -1,0 +1,23 @@
+<html>
+
+<head>
+    <title>
+        Tooly
+    </title>
+</head>
+
+<body>
+    <div id="target">I am div</div>
+</body>
+<script src="../node_modules/jquery/dist/jquery.js"></script>
+<script src="../src/jspm_packages/system.js"></script>
+<script src="../src/config.js"></script>
+<script>
+System
+    .import('tooly.js')
+    .then(function(argument) {
+        $('#target').tooly();
+    });
+</script>
+
+</html>

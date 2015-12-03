@@ -1,0 +1,12 @@
+#target {
+    position: relative;
+    top: 30px;
+    left: 90px;
+}
+
+.tooly:after {
+    content: '';
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid rgba(0, 0, 0, 0.1);
+}
