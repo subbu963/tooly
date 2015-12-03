@@ -8,6 +8,7 @@ import toolyTpl from 'tooly.html!text';
 import 'tooly.scss!';
 import InvalidPositionError from './errors/InvalidPositionError';
 import ViewPortTooSmallError from './errors/ViewPortTooSmallError';
+import NotInitializedError from './errors/NotInitializedError';
 
 const DEFAULT_OPTIONS = {
     position: 'top'
@@ -107,17 +108,22 @@ function _getToolyStyleId(id) {
 }
 
 function _cleanup(el) {
+    console.log('cleaning up!');
     let options = el.data(TOOLY_OPTIONS);
     let targetClass = `tooly ${_getToolyTargetClass(options.id)}`;
-    $body.find(targetClass).removeClass(targetClass);
-    $body.find(
-        `#${_getToolyContainerId(options.id)},
-         #${_getToolyStyleId(options.id)}`
-    ).remove();
+    $body
+        .find(`.tooly.${_getToolyTargetClass(options.id)}`)
+        .removeClass(`tooly ${_getToolyTargetClass(options.id)}`);
+    $body
+        .find(
+            `#${_getToolyContainerId(options.id)},
+            #${_getToolyStyleId(options.id)}`
+        )
+        .remove();
 }
 
 function _onMouseOver() {
-    let _this = this;
+    let _this = $(this);
     let options = _this.data(TOOLY_OPTIONS);
     let toolyContainer = $(toolyTpl).attr('id', _getToolyContainerId(options.id));
     _this.addClass(`tooly ${_getToolyTargetClass(options.id)}`);
@@ -130,7 +136,6 @@ function _onMouseOver() {
         );
     } catch (e) {
         _cleanup(_this);
-        console.log('cleaning up!');
         if (e instanceof ViewPortTooSmallError) {
             console.error(e.message);
         } else {
@@ -140,8 +145,16 @@ function _onMouseOver() {
 }
 
 function _onMouseOut() {
-    let _this = this;
+    let _this = $(this);
     _cleanup(_this);
+}
+
+function _destroy(el) {
+    _cleanup(el);
+    el
+        .removeData(TOOLY_OPTIONS)
+        .off('mouseover', _onMouseOver)
+        .off('mouseout', _onMouseOut);
 }
 $.fn.tooly = function (options) {
     let _this = this;
@@ -153,8 +166,20 @@ $.fn.tooly = function (options) {
             throw new InvalidPositionError(`${options.position} not recognized!`);
         }
         _this.data(TOOLY_OPTIONS, options);
-        _this.mouseover(_onMouseOver.bind(_this));
-        _this.mouseout(_onMouseOut.bind(_this));
+        _this
+            .mouseover(_onMouseOver)
+            .mouseout(_onMouseOut);
+    } else if (type === 'string') {
+        let existingOptions = _this.data(TOOLY_OPTIONS);
+        if (!existingOptions) {
+            throw new NotInitializedError('tooly not initialized');
+        }
+        switch (options) {
+        case 'destroy':
+            _destroy(_this);
+            break;
+        default:
+        }
     }
     return _this;
 };
