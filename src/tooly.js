@@ -14,7 +14,6 @@ const CONTAINER_CLASS_PREFIX = 'tooly-container-id-';
 const STYLE_PREFIX = 'tooly-style-id-';
 const ANCHOR_HEIGHT = 10;
 const TOOLY_OPTIONS = 'tooly-options';
-let elMap = new WeakMap();
 let currWinHeight, currWinWidth;
 let $window = $(window),
     $body = $('body');
@@ -58,7 +57,6 @@ function _getToolyStyleId(id) {
 
 function _onMouseOver() {
     let _this = this;
-    console.log(_this);
     let options = _this.data(TOOLY_OPTIONS);
     let toolyContainer = $(toolyTpl).attr('id', _getToolyContainerId(options.id));
     _this.addClass(`tooly ${_getToolyTargetClass(options.id)}`);
@@ -71,7 +69,6 @@ function _onMouseOut() {
     let _this = this;
     let options = _this.data(TOOLY_OPTIONS);
     $body.find(`#${_getToolyContainerId(options.id)}, #${_getToolyStyleId(options.id)}`).remove();
-    elMap.delete(_this);
 }
 $.fn.tooly = function (options) {
     let _this = this;
@@ -80,7 +77,6 @@ $.fn.tooly = function (options) {
         options = $.extend({}, DEFAULT_OPTIONS, options);
         options.id = nextUID();
         _this.data(TOOLY_OPTIONS, options);
-        !elMap.has(_this) && elMap.set(_this, options);
         _this.mouseover(_onMouseOver.bind(_this));
         _this.mouseout(_onMouseOut.bind(_this));
     }
