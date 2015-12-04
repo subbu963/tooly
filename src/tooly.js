@@ -27,7 +27,26 @@ const STYLE_PREFIX = 'tooly-style-id-';
 const ANCHOR_HEIGHT = 10;
 const TOOLY_OPTIONS = 'tooly-options';
 const POSITIONS_ACCEPTED = ['top', 'bottom', 'left'];
+const ANCHOR_STYLE_MAP = {
+    top: {
+        'left': '2em',
+        'bottom': '-0.325em',
+        'box-shadow': '1px 1px 0 0 #BABABC'
+    },
+    right: {
 
+    },
+    bottom: {
+        'left': '2em',
+        'top': '-0.325em',
+        'box-shadow': '-1px -1px 0 0 #BABABC'
+    },
+    left: {
+        'top': '0.325em',
+        'right': '-0.325em',
+        'box-shadow': '1px -1px 0 0 #BABABC'
+    }
+};
 let elSet = new WeakSet();
 let $window = $(window),
     $body = $('body');
@@ -47,6 +66,19 @@ function _getNextPostion(position) {
     return currPosition + 1;
 }
 
+function _tooltipDoesFit(containerLeft, containerTop, containerHeight, position) {
+    switch (position) {
+    case 'top':
+        return containerTop >= 0;
+    case 'right':
+        return true;
+    case 'bottom':
+        return containerTop + containerHeight <= currWinHeight;
+    case 'left':
+        return containerLeft >= 0;
+    }
+}
+
 function _getStylesAndPos(el, container, position, preferredPosition) {
     preferredPosition = preferredPosition || position;
     let options = el.data(TOOLY_OPTIONS);
@@ -62,54 +94,26 @@ function _getStylesAndPos(el, container, position, preferredPosition) {
     if (position === 'top') {
         containerHeight += ANCHOR_HEIGHT;
         containerTop -= containerHeight;
-        if (containerTop < 0) {
-            let nextPosition = _getNextPostion(position);
-            if (nextPosition === POSITIONS_ACCEPTED.indexOf(preferredPosition)) {
-                throw new ViewPortTooSmallError('viewport too small!');
-            }
-            return _getStylesAndPos(el, container, POSITIONS_ACCEPTED[nextPosition], preferredPosition);
-        }
-        anchorStyles = createStyles(`${containerId}:before`, {
-            'left': '2em',
-            'bottom': '-0.325em',
-            'box-shadow': '1px 1px 0 0 #BABABC'
-        });
     } else if (position === 'right') {
         containerWidth += ANCHOR_HEIGHT;
     } else if (position === 'bottom') {
         containerTop += elHeight + ANCHOR_HEIGHT;
-        if (containerTop + containerHeight > currWinHeight) {
-            let nextPosition = _getNextPostion(position);
-            if (nextPosition === POSITIONS_ACCEPTED.indexOf(preferredPosition)) {
-                throw new ViewPortTooSmallError('viewport too small!');
-            }
-            return _getStylesAndPos(el, container, POSITIONS_ACCEPTED[nextPosition], preferredPosition);
-        }
-        anchorStyles = createStyles(`${containerId}:before`, {
-            'left': '2em',
-            'top': '-0.325em',
-            'box-shadow': '-1px -1px 0 0 #BABABC'
-        });
     } else {
         containerWidth += ANCHOR_HEIGHT;
         containerLeft -= containerWidth;
-        if (containerLeft < 0) {
-            let nextPosition = _getNextPostion(position);
-            if (nextPosition === POSITIONS_ACCEPTED.indexOf(preferredPosition)) {
-                throw new ViewPortTooSmallError('viewport too small!');
-            }
-            return _getStylesAndPos(el, container, POSITIONS_ACCEPTED[nextPosition], preferredPosition);
+    }
+    if (!_tooltipDoesFit(containerLeft, containerTop, containerHeight, position)) {
+        let nextPosition = _getNextPostion(position);
+        if (nextPosition === POSITIONS_ACCEPTED.indexOf(preferredPosition)) {
+            throw new ViewPortTooSmallError('viewport too small!');
         }
-        anchorStyles = createStyles(`${containerId}:before`, {
-            'top': '0.325em',
-            'right': '-0.325em',
-            'box-shadow': '1px -1px 0 0 #BABABC'
-        });
+        return _getStylesAndPos(el, container, POSITIONS_ACCEPTED[nextPosition], preferredPosition);
     }
     containerStyles = createStyles(containerId, {
         'top': `${containerTop}px`,
         'left': `${containerLeft}px`
     });
+    anchorStyles = createStyles(`${containerId}:before`, ANCHOR_STYLE_MAP[position]);
     return {
         styles: containerStyles + anchorStyles,
         position: position
