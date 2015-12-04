@@ -45,7 +45,7 @@ function _getNextPostion(position) {
     return currPosition + 1;
 }
 
-function _getStylesAndPos(el, container, position = 'top', preferredPosition) {
+function _getStylesAndPos(el, container, position, preferredPosition) {
     preferredPosition = preferredPosition || position;
     let options = el.data(TOOLY_OPTIONS);
     let elWidth = el.width(),
