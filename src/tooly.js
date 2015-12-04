@@ -26,7 +26,9 @@ const CONTAINER_CLASS_PREFIX = 'tooly-container-id-';
 const STYLE_PREFIX = 'tooly-style-id-';
 const ANCHOR_HEIGHT = 10;
 const TOOLY_OPTIONS = 'tooly-options';
-const POSITIONS_ACCEPTED = ['top', 'bottom'];
+const POSITIONS_ACCEPTED = ['top', 'bottom', 'left'];
+
+let elSet = new WeakSet();
 let $window = $(window),
     $body = $('body');
 let currWinHeight = $window.height(),
@@ -50,12 +52,12 @@ function _getStylesAndPos(el, container, position, preferredPosition) {
     let options = el.data(TOOLY_OPTIONS);
     let elWidth = el.width(),
         elHeight = el.height(),
-        elPosition = el.position();
+        elPosition = el.offset();
     let containerWidth = container.width(),
         containerHeight = container.height(),
         containerId = `#${_getToolyContainerId(options.id)}`,
-        containerTop = elPosition.top,
-        containerLeft = elPosition.left,
+        containerTop = elPosition.top - $window.scrollTop(),
+        containerLeft = elPosition.left - $window.scrollLeft(),
         containerStyles, anchorStyles;
     if (position === 'top') {
         containerHeight += ANCHOR_HEIGHT;
@@ -67,15 +69,10 @@ function _getStylesAndPos(el, container, position, preferredPosition) {
             }
             return _getStylesAndPos(el, container, POSITIONS_ACCEPTED[nextPosition], preferredPosition);
         }
-        containerStyles = createStyles(containerId, {
-            'top': `${containerTop}px`,
-            'left': `${containerLeft}px`
-        });
         anchorStyles = createStyles(`${containerId}:after`, {
             'left': '2em',
             'bottom': '-0.325em',
-            'box-shadow': '1px 1px 0 0 #BABABC',
-            'background': '#FFFFFF'
+            'box-shadow': '1px 1px 0 0 #BABABC'
         });
     } else if (position === 'right') {
         containerWidth += ANCHOR_HEIGHT;
@@ -88,10 +85,6 @@ function _getStylesAndPos(el, container, position, preferredPosition) {
             }
             return _getStylesAndPos(el, container, POSITIONS_ACCEPTED[nextPosition], preferredPosition);
         }
-        containerStyles = createStyles(containerId, {
-            'top': `${containerTop}px`,
-            'left': `${containerLeft}px`
-        });
         anchorStyles = createStyles(`${containerId}:after`, {
             'left': '2em',
             'top': '-0.325em',
@@ -99,7 +92,24 @@ function _getStylesAndPos(el, container, position, preferredPosition) {
         });
     } else {
         containerWidth += ANCHOR_HEIGHT;
+        containerLeft -= containerWidth;
+        if (containerLeft < 0) {
+            let nextPosition = _getNextPostion(position);
+            if (nextPosition === POSITIONS_ACCEPTED.indexOf(preferredPosition)) {
+                throw new ViewPortTooSmallError('viewport too small!');
+            }
+            return _getStylesAndPos(el, container, POSITIONS_ACCEPTED[nextPosition], preferredPosition);
+        }
+        anchorStyles = createStyles(`${containerId}:after`, {
+            'top': '0.325em',
+            'right': '-0.325em',
+            'box-shadow': '1px -1px 0 0 #BABABC'
+        });
     }
+    containerStyles = createStyles(containerId, {
+        'top': `${containerTop}px`,
+        'left': `${containerLeft}px`
+    });
     return {
         styles: containerStyles + anchorStyles,
         position: position

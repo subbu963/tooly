@@ -3,7 +3,7 @@ class ExtendableError extends Error {
         super(...arguments);
         this.name = this.constructor.name;
         this.message = message;
-        Error.captureStackTrace(this, this.constructor.name)
+        this.stack = (new Error()).stack;
     }
 }
 export default ExtendableError;
