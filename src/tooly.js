@@ -91,16 +91,21 @@ function _getStylesAndPos(el, container, position, preferredPosition) {
         containerTop = elPosition.top - $window.scrollTop(),
         containerLeft = elPosition.left - $window.scrollLeft(),
         containerStyles, anchorStyles;
-    if (position === 'top') {
+    switch (position) {
+    case 'top':
         containerHeight += ANCHOR_HEIGHT;
         containerTop -= containerHeight;
-    } else if (position === 'right') {
+        break;
+    case 'right':
         containerWidth += ANCHOR_HEIGHT;
-    } else if (position === 'bottom') {
+        break;
+    case 'bottom':
         containerTop += elHeight + ANCHOR_HEIGHT;
-    } else {
+        break;
+    case 'left':
         containerWidth += ANCHOR_HEIGHT;
         containerLeft -= containerWidth;
+        break;
     }
     if (!_tooltipDoesFit(containerLeft, containerTop, containerHeight, position)) {
         let nextPosition = _getNextPostion(position);
