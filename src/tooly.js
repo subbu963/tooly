@@ -69,7 +69,7 @@ function _getStylesAndPos(el, container, position, preferredPosition) {
             }
             return _getStylesAndPos(el, container, POSITIONS_ACCEPTED[nextPosition], preferredPosition);
         }
-        anchorStyles = createStyles(`${containerId}:after`, {
+        anchorStyles = createStyles(`${containerId}:before`, {
             'left': '2em',
             'bottom': '-0.325em',
             'box-shadow': '1px 1px 0 0 #BABABC'
@@ -85,7 +85,7 @@ function _getStylesAndPos(el, container, position, preferredPosition) {
             }
             return _getStylesAndPos(el, container, POSITIONS_ACCEPTED[nextPosition], preferredPosition);
         }
-        anchorStyles = createStyles(`${containerId}:after`, {
+        anchorStyles = createStyles(`${containerId}:before`, {
             'left': '2em',
             'top': '-0.325em',
             'box-shadow': '-1px -1px 0 0 #BABABC'
@@ -100,7 +100,7 @@ function _getStylesAndPos(el, container, position, preferredPosition) {
             }
             return _getStylesAndPos(el, container, POSITIONS_ACCEPTED[nextPosition], preferredPosition);
         }
-        anchorStyles = createStyles(`${containerId}:after`, {
+        anchorStyles = createStyles(`${containerId}:before`, {
             'top': '0.325em',
             'right': '-0.325em',
             'box-shadow': '1px -1px 0 0 #BABABC'

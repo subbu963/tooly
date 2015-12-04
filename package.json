@@ -1,13 +1,14 @@
 {
   "scripts": {
-    "start": "node_modules/http-server/bin/http-server"
+    "start": "node_modules/http-server/bin/http-server --cors",
+    "bundle": "node_modules/gulp/bin/gulp.js"
   },
   "jspm": {
     "directories": {
       "baseURL": "src"
     },
     "dependencies": {
-      "scss": "github:theefer/plugin-sass@master",
+      "scss": "github:mobilexag/plugin-sass@^0.1.0",
       "text": "github:systemjs/plugin-text@^0.0.3"
     },
     "devDependencies": {
@@ -15,5 +16,9 @@
       "babel-runtime": "npm:babel-runtime@^5.8.24",
       "core-js": "npm:core-js@^1.1.4"
     }
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "systemjs-builder": "^0.14.11"
   }
 }

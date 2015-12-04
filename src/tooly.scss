@@ -14,15 +14,17 @@
     box-shadow: 0 2px 4px 0 rgba(34, 36, 38, .12),
     0 2px 10px 0 rgba(34, 36, 38, .08);
     background-color: #FFFFFF;
-    &:after {
+    &:before {
         position: absolute;
         margin-left: 0;
         content: '';
         width: .75em;
         height: .75em;
         transform: rotate(45deg);
-        z-index: 2;
         background: #FFFFFF
     }
     transition: opacity 300ms ease-in-out;
+    .body-wrapper {
+        position: relative;
+    }
 }
