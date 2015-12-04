@@ -12,7 +12,14 @@ import NotInitializedError from './errors/NotInitializedError';
 import AlreadyInitializedError from './errors/AlreadyInitializedError';
 
 const DEFAULT_OPTIONS = {
-    position: 'top'
+    position: 'top',
+    animation: 'opacity'
+};
+const ANIMATION_CLASSES = {
+    'opacity': {
+        'start': 'hide',
+        'end': 'show'
+    }
 };
 const TARGET_CLASS_PREFIX = 'tooly-id-';
 const CONTAINER_CLASS_PREFIX = 'tooly-container-id-';
@@ -38,7 +45,7 @@ function _getNextPostion(position) {
     return currPosition + 1;
 }
 
-function _getStyles(el, container, position = 'top', preferredPosition) {
+function _getStylesAndPos(el, container, position = 'top', preferredPosition) {
     preferredPosition = preferredPosition || position;
     let options = el.data(TOOLY_OPTIONS);
     let elWidth = el.width(),
@@ -58,7 +65,7 @@ function _getStyles(el, container, position = 'top', preferredPosition) {
             if (nextPosition === POSITIONS_ACCEPTED.indexOf(preferredPosition)) {
                 throw new ViewPortTooSmallError('viewport too small!');
             }
-            return _getStyles(el, container, POSITIONS_ACCEPTED[nextPosition], preferredPosition);
+            return _getStylesAndPos(el, container, POSITIONS_ACCEPTED[nextPosition], preferredPosition);
         }
         containerStyles = createStyles(containerId, {
             'top': `${containerTop}px`,
@@ -79,7 +86,7 @@ function _getStyles(el, container, position = 'top', preferredPosition) {
             if (nextPosition === POSITIONS_ACCEPTED.indexOf(preferredPosition)) {
                 throw new ViewPortTooSmallError('viewport too small!');
             }
-            return _getStyles(el, container, POSITIONS_ACCEPTED[nextPosition], preferredPosition);
+            return _getStylesAndPos(el, container, POSITIONS_ACCEPTED[nextPosition], preferredPosition);
         }
         containerStyles = createStyles(containerId, {
             'top': `${containerTop}px`,
@@ -93,7 +100,10 @@ function _getStyles(el, container, position = 'top', preferredPosition) {
     } else {
         containerWidth += ANCHOR_HEIGHT;
     }
-    return containerStyles + anchorStyles;
+    return {
+        styles: containerStyles + anchorStyles,
+        position: position
+    };
 }
 
 function _getToolyContainerId(id) {
@@ -123,24 +133,42 @@ function _cleanup(el) {
         .remove();
 }
 
+function _animateOpacity(el, toolyContainer, position) {
+    toolyContainer
+        .removeClass(ANIMATION_CLASSES['opacity'].start)
+        .addClass(ANIMATION_CLASSES['opacity'].end);
+}
+
+function _animate(el, toolyContainer, position, animation) {
+    switch (animation) {
+    case 'opacity':
+        _animateOpacity(el, toolyContainer, position);
+        break;
+    default:
+
+    }
+}
+
 function _onMouseOver() {
     let _this = $(this);
     let options = _this.data(TOOLY_OPTIONS);
-    console.log(options);
     let toolyContainer = $(toolyTpl).attr('id', _getToolyContainerId(options.id));
+    toolyContainer.addClass(ANIMATION_CLASSES[options.animation].start);
     _this.addClass(`tooly ${_getToolyTargetClass(options.id)}`);
     toolyContainer.find('.body-wrapper').html(options.html);
     $body.append(toolyContainer);
     try {
+        let stylesAndPos = _getStylesAndPos(_this, toolyContainer, options.position);
         $body.append(
-            `<style id="${_getToolyStyleId(options.id)}">
-            ${_getStyles(_this,toolyContainer,options.position)}</style>`
+            `<style id="${_getToolyStyleId(options.id)}">${stylesAndPos.styles}</style>`
         );
+        _animate(_this, toolyContainer, stylesAndPos.position, options.animation);
     } catch (e) {
         _cleanup(_this);
         if (e instanceof ViewPortTooSmallError) {
             console.error(e.message);
         } else {
+            //rethrow the error to be caught by error loggers like ravenjs/errorception
             throw e;
         }
     }
