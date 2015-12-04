@@ -1,0 +1,55 @@
+<html>
+
+<head>
+    <title>
+        Tooly
+    </title>
+    <style>
+    #target1 {
+        position: relative;
+        top: 50px;
+        left: 90px;
+    }
+    
+    #target2 {
+        position: relative;
+        top: 500px;
+        left: 400px;
+    }
+    
+    #target3 {
+        position: relative;
+        top: 800px;
+        left: 400px;
+    }
+    
+    .tooly-container .body-wrapper {
+        background-color: #FFF;
+    }
+    </style>
+</head>
+
+<body>
+    <div style="height:900px;width:100%;overflow-y:scroll;position:absolute;left:30px;top:90px;">
+        <a id="target1" href="http://www.doge.com">doge.com</a>
+        <a id="target2" href="http://www.doge.com">doge.com</a>
+        <a id="target3" href="http://www.doge.com">doge.com</a>
+    </div>
+</body>
+<script type="text/template" id="doge">
+    <div>
+        <img src="/examples/doge_dp.jpg" alt="">
+    </div>
+    <p style="text-align: center;">DOGEEEEEEEEEEEEEEEEEE</p>
+</script>
+<script src="../node_modules/jquery/dist/jquery.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> -->
+<script src="../dist/tooly.js"></script>
+<script>
+$('#target1,#target2,#target3').tooly({
+    html: $('#doge').html(),
+    position: 'top'
+});
+</script>
+
+</html>
