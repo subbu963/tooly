@@ -4,6 +4,8 @@
         "bundle": "node_modules/gulp/bin/gulp.js --module=all"
     },
     "jspm": {
+        "jspmNodeConversion": false,
+        "format": "es6",
         "directories": {
             "baseURL": "src"
         },
@@ -23,9 +25,9 @@
         "systemjs-builder": "^0.14.11",
         "yargs": "^3.31.0"
     },
-    "name": "tooly",
+    "name": "tooly-tip",
     "description": "Minimalistic tooltip plugin written in ES6",
-    "version": "0.1.0",
+    "version": "0.1.4",
     "main": "index.js",
     "directories": {
         "example": "examples"

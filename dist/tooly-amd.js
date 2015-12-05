@@ -2491,6 +2491,8 @@ $__System.register('1', ['2', '7', '8', '9', '20', '49', '1f', '1e', '1d', '1c']
 
                 return this;
             };
+
+            _export('default', $);
         }
     };
 });

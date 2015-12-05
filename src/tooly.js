@@ -255,3 +255,4 @@ $.fn.tooly = function (options) {
 
     return this;
 };
+export default $;
