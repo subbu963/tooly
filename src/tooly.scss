@@ -1,19 +1,16 @@
 .tooly-container {
-    &.hide {
-        opacity: 0;
-    }
-    &.show {
-        opacity: 1;
-    }
     position: fixed;
     min-width: 100px;
     border: 1px solid #ECEFF1;
     border-radius: 4px;
     border: 1px solid #D4D4D5;
     max-width: 250px;
-    box-shadow: 0 2px 4px 0 rgba(34, 36, 38, .12),
-    0 2px 10px 0 rgba(34, 36, 38, .08);
+    box-shadow: 0 2px 4px 0 rgba(34, 36, 38, .12), 0 2px 10px 0 rgba(34, 36, 38, .08);
     background-color: #FFFFFF;
+    opacity: 1;
+    .body-wrapper {
+        position: relative;
+    }
     &:before {
         position: absolute;
         margin-left: 0;
@@ -23,8 +20,19 @@
         transform: rotate(45deg);
         background: #FFFFFF
     }
-    transition: opacity 300ms ease-in-out;
-    .body-wrapper {
-        position: relative;
+    &.animate-opacity {
+        opacity: 0;
+    }
+    &.animate-slide-top {
+        margin-top: 10px;
+    }
+    &.animate-slide-right {
+        margin-left: -10px;
+    }
+    &.animate-slide-bottom {
+        margin-top: -10px;
+    }
+    &.animate-slide-left {
+        margin-left: 10px;
     }
 }

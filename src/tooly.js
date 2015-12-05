@@ -7,6 +7,7 @@ from 'utils';
 import toolyTpl from 'tooly.html!text';
 import 'tooly.scss!';
 import InvalidPositionError from './errors/InvalidPositionError';
+import InvalidAnimationError from './errors/InvalidAnimationError';
 import ViewPortTooSmallError from './errors/ViewPortTooSmallError';
 import NotInitializedError from './errors/NotInitializedError';
 import AlreadyInitializedError from './errors/AlreadyInitializedError';
@@ -15,18 +16,15 @@ const DEFAULT_OPTIONS = {
     position: 'top',
     animation: 'opacity'
 };
-const ANIMATION_CLASSES = {
-    'opacity': {
-        'start': 'hide',
-        'end': 'show'
-    }
-};
+
 const TARGET_CLASS_PREFIX = 'tooly-id-';
 const CONTAINER_CLASS_PREFIX = 'tooly-container-id-';
 const STYLE_PREFIX = 'tooly-style-id-';
 const ANCHOR_HEIGHT = 17;
 const TOOLY_OPTIONS = 'tooly-options';
 const POSITIONS_ACCEPTED = ['top', 'right', 'bottom', 'left'];
+const ANIMATIONS_ACCEPTED = ['opacity', 'slide'];
+const ANIMATE_CLASS_PREFIX = 'animate-';
 const DEFAULT_ANCHOR_STYLES = {
     top: {
         'bottom': '-5px',
@@ -157,19 +155,23 @@ function _cleanup(el) {
         .remove();
 }
 
-function _animateOpacity(el, toolyContainer, position) {
+function _animateContainer(toolyContainer, animationClass) {
     toolyContainer
-        .removeClass(ANIMATION_CLASSES['opacity'].start)
-        .addClass(ANIMATION_CLASSES['opacity'].end);
+        .addClass(ANIMATE_CLASS_PREFIX + animationClass)
+        .animate({
+            opacity: 1,
+            margin: 0
+        }, 100);
+
 }
 
 function _animate(el, toolyContainer, position, animation) {
     switch (animation) {
-    case 'opacity':
-        _animateOpacity(el, toolyContainer, position);
+    case 'slide':
+        _animateContainer(toolyContainer, `${animation}-${position}`);
         break;
     default:
-
+        _animateContainer(toolyContainer, animation);
     }
 }
 
@@ -177,7 +179,6 @@ function _onMouseOver() {
     let _this = $(this);
     let options = _this.data(TOOLY_OPTIONS);
     let toolyContainer = $(toolyTpl).attr('id', _getToolyContainerId(options.id));
-    toolyContainer.addClass(ANIMATION_CLASSES[options.animation].start);
     _this.addClass(`tooly ${_getToolyTargetClass(options.id)}`);
     toolyContainer.find('.body-wrapper').html(options.html);
     $body.append(toolyContainer);
@@ -211,6 +212,15 @@ function _destroy(el) {
         .off('mouseout', _onMouseOut);
 }
 
+function _verifyOptions(options) {
+    if (POSITIONS_ACCEPTED.indexOf(options.position) === -1) {
+        throw new InvalidPositionError(`${options.position} not recognized!`);
+    }
+    if (ANIMATIONS_ACCEPTED.indexOf(options.animation) === -1) {
+        throw new InvalidAnimationError(`${options.animation} not recognized!`);
+    }
+}
+
 function _tooly(options) {
     let _this = $(this);
     let type = $.type(options);
@@ -221,9 +231,7 @@ function _tooly(options) {
         }
         options = $.extend({}, DEFAULT_OPTIONS, options);
         options.id = nextUID();
-        if (POSITIONS_ACCEPTED.indexOf(options.position) === -1) {
-            throw new InvalidPositionError(`${options.position} not recognized!`);
-        }
+        _verifyOptions(options);
         _this.data(TOOLY_OPTIONS, options);
         _this
             .mouseover(_onMouseOver)
