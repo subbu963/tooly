@@ -1929,13 +1929,13 @@ $__System.register('1', ['2', '7', '8', '9', '21', '22', '23', '24', '25'], func
 
             /** 
              * Jquery wrapped window
-             * @type {object}
+             * @type {jQuery}
              */
             $window = $(window);
 
             /** 
              * Jquery wrapped body
-             * @type {object}
+             * @type {jQuery}
              */
             $body = $('body');
 
