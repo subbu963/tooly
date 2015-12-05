@@ -15,7 +15,8 @@ function getPackageJson() {
 }
 
 function publish() {
-    execSync('git tag v' + getPackageJson().version + ' && git push --tags && npm publish ./');
+    var version = getPackageJson().version;
+    execSync('git commit -m "version bumped to ' + version + '" -a && git push && git tag v' + getPackageJson().version + ' && git push --tags && npm publish ./');
 }
 gulp.task('bundle', function () {
     var builder = new Builder('./src', './src/config.js');
