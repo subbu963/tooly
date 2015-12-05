@@ -6,7 +6,22 @@ Minimalistic tooltip plugin written in ES6
   $ bower install tooly-tip
   $ npm install tooly-tip --save
 ```
-
+```html
+<script src="/path/to/jquery.js"></script>
+<script src="/path/to/tooly-global.js"></script>
+```
+or 
+```javascript
+requirejs.config({
+    'shim': {
+      'tooly'  : ['jquery']
+    }
+});
+define(['tooly'], function($){
+  //some code
+});
+```
+Tooly comes in CommonJS, Global and AMD variants.
 ## Usage
 Currently tooly can be triggered only on hover
 ### Initialization
