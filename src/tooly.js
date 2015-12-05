@@ -105,12 +105,12 @@ const DEFAULT_ANCHOR_STYLES = {
 };
 /** 
  * Jquery wrapped window
- * @type {object}
+ * @type {jQuery}
  */
 let $window = $(window);
 /** 
  * Jquery wrapped body
- * @type {object}
+ * @type {jQuery}
  */
 let $body = $('body');
 /** 
