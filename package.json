@@ -27,7 +27,7 @@
     },
     "name": "tooly-tip",
     "description": "Minimalistic tooltip plugin written in ES6",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "main": "index.js",
     "directories": {
         "example": "examples"
