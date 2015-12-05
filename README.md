@@ -17,7 +17,7 @@ requirejs.config({
       'tooly'  : ['jquery']
     }
 });
-define(['jquery','tooly'], function($){
+define(['tooly'], function($){
   //some code
 });
 ```
