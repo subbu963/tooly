@@ -1,11 +1,22 @@
 var gulp = require('gulp');
 var argv = require('yargs').argv;
 var RSVP = require('rsvp');
+var execSync = require('child_process').execSync;
+var bump = require('gulp-bump');
 var Builder = require('systemjs-builder');
+var fs = require('fs');
 
 var DEFAULT_BUILD_PREFIX = './dist/tooly-';
 var BUILD_SRC = './src/tooly.js';
 var MODULE_TYPES_ALLOWED = ['cjs', 'amd', 'global'];
+
+function getPackageJson() {
+    return JSON.parse(fs.readFileSync('./package.json', 'utf8'));
+}
+
+function publish() {
+    execSync('git tag v' + getPackageJson().version + ' && git push --tags && npm publish ./');
+}
 gulp.task('bundle', function () {
     var builder = new Builder('./src', './src/config.js');
     var modulesToBuild;
@@ -46,5 +57,13 @@ gulp.task('bundle', function () {
     }
     return RSVP.all(buildPromises);
 });
+gulp.task('publish', function () {
+    gulp
+        .src('./package.json')
+        .pipe(bump({
+            type: argv.type
+        }))
+        .pipe(gulp.dest('./'))
+        .on('end', publish);
+});
 gulp.task('default', ['bundle']);
-//gulp.task('bundle', ['bundle-npm-module', 'bundle-standalone']);

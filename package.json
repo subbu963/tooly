@@ -1,7 +1,9 @@
 {
     "scripts": {
-        "start": "node_modules/http-server/bin/http-server --cors",
-        "bundle": "node_modules/gulp/bin/gulp.js --module=all"
+        "start": "node_modules/http-server/bin/http-server",
+        "bundle": "node_modules/gulp/bin/gulp.js --module=all",
+        "publish-plugin": "npm run bundle && node_modules/gulp/bin/gulp.js publish",
+        "generate-docs": "node_modules/.bin/jsdoc src/ src/errors/ -d ./docs"
     },
     "jspm": {
         "jspmNodeConversion": false,
@@ -21,13 +23,15 @@
     },
     "devDependencies": {
         "gulp": "^3.9.0",
+        "gulp-bump": "^1.0.0",
+        "jsdoc": "^3.4.0",
         "rsvp": "^3.1.0",
         "systemjs-builder": "^0.14.11",
         "yargs": "^3.31.0"
     },
     "name": "tooly-tip",
     "description": "Minimalistic tooltip plugin written in ES6",
-    "version": "0.1.5",
+    "version": "0.1.11",
     "main": "index.js",
     "directories": {
         "example": "examples"

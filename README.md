@@ -8,7 +8,7 @@ Minimalistic tooltip plugin written in ES6
 ```
 
 ## Usage
-Currently tooly can be triggered only on hover or manually using tooly api
+Currently tooly can be triggered only on hover
 ### Initialization
 ```javascript
 $(target).tooly({
@@ -22,3 +22,16 @@ $(target).tooly({
 ```javascript
 $(target).tooly('destroy');
 ```
+## Docs
+```bash
+  $ npm install
+  $ npm run generate-docs
+```
+Docs will be put in /docs folder
+## Examples
+To run the examples
+```bash
+  $ npm start
+```
+And goto http://localhost:8080/examples/index.html
+To run the examples in dev mode goto http://localhost:8080/examples/index-dev.html

@@ -1,3 +1,8 @@
+/**
+ * Tooly module.
+ * @author Aditya Subramanyam
+ * @module
+ */
 import $ from 'jquery';
 import {
     nextUID,
@@ -12,19 +17,70 @@ import ViewPortTooSmallError from './errors/ViewPortTooSmallError';
 import NotInitializedError from './errors/NotInitializedError';
 import AlreadyInitializedError from './errors/AlreadyInitializedError';
 
+/** 
+ * Default tooly options
+ * @constant
+ * @default
+ * @type {object}
+ */
 const DEFAULT_OPTIONS = {
     position: 'top',
     animation: 'opacity'
 };
-
+/** 
+ * Prefix of class that will be applied to the target element
+ * @constant
+ * @type {string}
+ */
 const TARGET_CLASS_PREFIX = 'tooly-id-';
-const CONTAINER_CLASS_PREFIX = 'tooly-container-id-';
+/** 
+ * Prefix of id that will be applied to the container element
+ * @constant
+ * @type {string}
+ */
+const CONTAINER_ID_PREFIX = 'tooly-container-id-';
+/** 
+ * Prefix of id that will be applied to the style element
+ * @constant
+ * @type {string}
+ */
 const STYLE_PREFIX = 'tooly-style-id-';
-const ANCHOR_HEIGHT = 17;
+/** 
+ * Anchor elements visible diagonal length
+ * @constant
+ * @type {number}
+ */
+const ANCHOR_HEIGHT = 9;
+/** 
+ * Key of data object stored in the element
+ * @constant
+ * @type {string}
+ */
 const TOOLY_OPTIONS = 'tooly-options';
+/** 
+ * Positions accepted when initializing tooly
+ * @constant
+ * @type {string[]}
+ */
 const POSITIONS_ACCEPTED = ['top', 'right', 'bottom', 'left'];
+/** 
+ * Animations accepted when initializing tooly
+ * @constant
+ * @type {string[]}
+ */
 const ANIMATIONS_ACCEPTED = ['opacity', 'slide'];
+/** 
+ * Prefix of class that will be applied to animate the container
+ * @constant
+ * @type {string}
+ */
 const ANIMATE_CLASS_PREFIX = 'animate-';
+/** 
+ * Default anchor styles
+ * @constant
+ * @default
+ * @type {object}
+ */
 const DEFAULT_ANCHOR_STYLES = {
     top: {
         'bottom': '-5px',
@@ -47,17 +103,38 @@ const DEFAULT_ANCHOR_STYLES = {
         'box-shadow': '1px -1px 0 0 #BABABC'
     }
 };
-let elSet = new WeakSet();
-let $window = $(window),
-    $body = $('body');
-let currWinHeight = $window.height(),
-    currWinWidth = $window.width();
+/** 
+ * Jquery wrapped window
+ * @type {object}
+ */
+let $window = $(window);
+/** 
+ * Jquery wrapped body
+ * @type {object}
+ */
+let $body = $('body');
+/** 
+ * Current window height
+ * @default
+ * @type {number}
+ */
+let currWinHeight = $window.height();
+/** 
+ * Current window width
+ * @default
+ * @type {number}
+ */
+let currWinWidth = $window.width();
 $window.resize(() => {
     console.log('window resized');
     currWinHeight = $window.height();
     currWinWidth = $window.width();
 });
-
+/**
+ * Returns the next possible position to try
+ * @param {string} position position
+ * @return {number} index of next position in POSITIONS_ACCEPTED
+ */
 function _getNextPostion(position) {
     let currPosition = POSITIONS_ACCEPTED.indexOf(position);
     if (currPosition === POSITIONS_ACCEPTED.length - 1) {
@@ -65,7 +142,15 @@ function _getNextPostion(position) {
     }
     return currPosition + 1;
 }
-
+/**
+ * Checks whether the tooltip will fit in the window
+ * @param {number} containerLeft distance of container from left
+ * @param {number} containerTop distance of container from top
+ * @param {number} containerHeight container height
+ * @param {number} containerWidth container width
+ * @param {string} position position
+ * @return {boolean} whether tooltip will fit or not
+ */
 function _tooltipWillFit(containerLeft, containerTop, containerHeight, containerWidth, position) {
     switch (position) {
     case 'top':
@@ -78,7 +163,14 @@ function _tooltipWillFit(containerLeft, containerTop, containerHeight, container
         return (containerLeft >= 0) && (containerTop + containerHeight <= currWinHeight);
     }
 }
-
+/**
+ * Calculates the styles and position of the container that needs to be applied
+ * @param {jQuery} el target element
+ * @param {jQuery} container element for which the styles and position needs to be calculated
+ * @param {string} position position
+ * @param {string} preferredPosition Preferred position of tooly
+ * @return {object} object containing styles and position
+ */
 function _getStylesAndPos(el, container, position, preferredPosition) {
     preferredPosition = preferredPosition || position;
     let options = el.data(TOOLY_OPTIONS);
@@ -127,21 +219,35 @@ function _getStylesAndPos(el, container, position, preferredPosition) {
         position: position
     };
 }
-
+/**
+ * Returns the id of a tooly container
+ * @param {number} id id of tooly
+ * @return {string} container id
+ */
 function _getToolyContainerId(id) {
-    return CONTAINER_CLASS_PREFIX + id;
+    return CONTAINER_ID_PREFIX + id;
 }
-
+/**
+ * Returns the class of a tooly target
+ * @param {number} id id of tooly
+ * @return {string} target class
+ */
 function _getToolyTargetClass(id) {
     return TARGET_CLASS_PREFIX + id;
 }
-
+/**
+ * Returns the id of a tooly style element
+ * @param {number} id id of tooly
+ * @return {string} style id
+ */
 function _getToolyStyleId(id) {
     return STYLE_PREFIX + id;
 }
-
+/**
+ * Cleanups styles and containers appended to the document
+ * @param {jQuery} el tooly target
+ */
 function _cleanup(el) {
-    console.log('cleaning up!');
     let options = el.data(TOOLY_OPTIONS);
     let targetClass = `tooly ${_getToolyTargetClass(options.id)}`;
     $body
@@ -154,7 +260,11 @@ function _cleanup(el) {
         )
         .remove();
 }
-
+/**
+ * Animates the container
+ * @param {jQuery} toolyContainer tooly container
+ * @param {string} animationClass class that needs to be applied to the tooly target
+ */
 function _animateContainer(toolyContainer, animationClass) {
     toolyContainer
         .addClass(ANIMATE_CLASS_PREFIX + animationClass)
@@ -162,9 +272,14 @@ function _animateContainer(toolyContainer, animationClass) {
             opacity: 1,
             margin: 0
         }, 100);
-
 }
-
+/**
+ * Returns the id of a tooly style element
+ * @param {jQuery} el tooly target
+ * @param {jQuery} toolyContainer tooly container
+ * @param {string} position position
+ * @param {string} animation animation that needs to be applied to the tooly target
+ */
 function _animate(el, toolyContainer, position, animation) {
     switch (animation) {
     case 'slide':
@@ -174,7 +289,10 @@ function _animate(el, toolyContainer, position, animation) {
         _animateContainer(toolyContainer, animation);
     }
 }
-
+/**
+ * Callback for mouseover on a tooly target
+ * @listens mouseover
+ */
 function _onMouseOver() {
     let _this = $(this);
     let options = _this.data(TOOLY_OPTIONS);
@@ -198,12 +316,18 @@ function _onMouseOver() {
         }
     }
 }
-
+/**
+ * Callback for mouseout on a tooly target
+ * @listens mouseout
+ */
 function _onMouseOut() {
     let _this = $(this);
     _cleanup(_this);
 }
-
+/**
+ * Destroy's a tooly target
+ * @param {jQuery} el tooly target
+ */
 function _destroy(el) {
     _cleanup(el);
     el
@@ -211,7 +335,10 @@ function _destroy(el) {
         .off('mouseover', _onMouseOver)
         .off('mouseout', _onMouseOut);
 }
-
+/**
+ * Verifies the options provided are valid or not
+ * @param {object} tooly options
+ */
 function _verifyOptions(options) {
     if (POSITIONS_ACCEPTED.indexOf(options.position) === -1) {
         throw new InvalidPositionError(`${options.position} not recognized!`);
@@ -220,7 +347,10 @@ function _verifyOptions(options) {
         throw new InvalidAnimationError(`${options.animation} not recognized!`);
     }
 }
-
+/**
+ * Tooly internal initializer
+ * @param {object} tooly options
+ */
 function _tooly(options) {
     let _this = $(this);
     let type = $.type(options);
@@ -248,6 +378,10 @@ function _tooly(options) {
         }
     }
 }
+/**
+ * Tooly external initializer
+ * @param {object} tooly options
+ */
 $.fn.tooly = function (options) {
     for (let i = 0; i < this.length; i++) {
         _tooly.call(this[i], options);
@@ -255,4 +389,7 @@ $.fn.tooly = function (options) {
 
     return this;
 };
+/** 
+ * Export jquery.
+ */
 export default $;
