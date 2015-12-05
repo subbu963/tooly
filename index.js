@@ -670,169 +670,256 @@
 
 "bundle";
 $__System.register('2', ['3', '4', '5', '6'], function (_export) {
-    var ExtendableError, _get, _inherits, _classCallCheck, AlreadyInitializedError;
+  var ExtendableError, _get, _inherits, _classCallCheck, AlreadyInitializedError;
 
-    return {
-        setters: [function (_4) {
-            ExtendableError = _4['default'];
-        }, function (_) {
-            _get = _['default'];
-        }, function (_2) {
-            _inherits = _2['default'];
-        }, function (_3) {
-            _classCallCheck = _3['default'];
-        }],
-        execute: function () {
-            'use strict';
+  return {
+    setters: [function (_4) {
+      ExtendableError = _4['default'];
+    }, function (_) {
+      _get = _['default'];
+    }, function (_2) {
+      _inherits = _2['default'];
+    }, function (_3) {
+      _classCallCheck = _3['default'];
+    }],
+    execute: function () {
+      /**
+       * AlreadyInitialized Error module.
+       * @author Aditya Subramanyam
+       * @module
+       */
 
-            AlreadyInitializedError = (function (_ExtendableError) {
-                _inherits(AlreadyInitializedError, _ExtendableError);
+      /**
+       * AlreadyInitialized Error
+       */
+      'use strict';
 
-                function AlreadyInitializedError(message, fileName, lineNumber) {
-                    _classCallCheck(this, AlreadyInitializedError);
+      AlreadyInitializedError = (function (_ExtendableError) {
+        _inherits(AlreadyInitializedError, _ExtendableError);
 
-                    _get(Object.getPrototypeOf(AlreadyInitializedError.prototype), 'constructor', this).apply(this, arguments);
-                }
+        /**
+         * Create a AlreadyInitializedError.
+         * @param {(string|string[])} message - The error message/messages.
+         * @param {(string|string[])} fileName - The file/files in which the eror originated.
+         * @param {(string|string[])} lineNumber - The line/lines at which error occurred.
+         */
 
-                return AlreadyInitializedError;
-            })(ExtendableError);
+        function AlreadyInitializedError(message, fileName, lineNumber) {
+          _classCallCheck(this, AlreadyInitializedError);
 
-            _export('default', AlreadyInitializedError);
+          _get(Object.getPrototypeOf(AlreadyInitializedError.prototype), 'constructor', this).apply(this, arguments);
         }
-    };
+
+        /** Export AlreadyInitializedError. */
+        return AlreadyInitializedError;
+      })(ExtendableError);
+
+      _export('default', AlreadyInitializedError);
+    }
+  };
 });
 
 $__System.register('7', ['3', '4', '5', '6'], function (_export) {
-    var ExtendableError, _get, _inherits, _classCallCheck, NotInitializedError;
+  var ExtendableError, _get, _inherits, _classCallCheck, NotInitializedError;
 
-    return {
-        setters: [function (_4) {
-            ExtendableError = _4['default'];
-        }, function (_) {
-            _get = _['default'];
-        }, function (_2) {
-            _inherits = _2['default'];
-        }, function (_3) {
-            _classCallCheck = _3['default'];
-        }],
-        execute: function () {
-            'use strict';
+  return {
+    setters: [function (_4) {
+      ExtendableError = _4['default'];
+    }, function (_) {
+      _get = _['default'];
+    }, function (_2) {
+      _inherits = _2['default'];
+    }, function (_3) {
+      _classCallCheck = _3['default'];
+    }],
+    execute: function () {
+      /**
+       * NotInitialized Error module.
+       * @author Aditya Subramanyam
+       * @module
+       */
 
-            NotInitializedError = (function (_ExtendableError) {
-                _inherits(NotInitializedError, _ExtendableError);
+      /**
+       * NotInitialized Error
+       */
+      'use strict';
 
-                function NotInitializedError(message, fileName, lineNumber) {
-                    _classCallCheck(this, NotInitializedError);
+      NotInitializedError = (function (_ExtendableError) {
+        _inherits(NotInitializedError, _ExtendableError);
 
-                    _get(Object.getPrototypeOf(NotInitializedError.prototype), 'constructor', this).apply(this, arguments);
-                }
+        /**
+         * Create a NotInitializedError.
+         * @param {(string|string[])} message - The error message/messages.
+         * @param {(string|string[])} fileName - The file/files in which the eror originated.
+         * @param {(string|string[])} lineNumber - The line/lines at which error occurred.
+         */
 
-                return NotInitializedError;
-            })(ExtendableError);
+        function NotInitializedError(message, fileName, lineNumber) {
+          _classCallCheck(this, NotInitializedError);
 
-            _export('default', NotInitializedError);
+          _get(Object.getPrototypeOf(NotInitializedError.prototype), 'constructor', this).apply(this, arguments);
         }
-    };
+
+        /** Export NotInitializedError. */
+        return NotInitializedError;
+      })(ExtendableError);
+
+      _export('default', NotInitializedError);
+    }
+  };
 });
 
 $__System.register('8', ['3', '4', '5', '6'], function (_export) {
-    var ExtendableError, _get, _inherits, _classCallCheck, ViewPortTooSmallError;
+  var ExtendableError, _get, _inherits, _classCallCheck, ViewPortTooSmallError;
 
-    return {
-        setters: [function (_4) {
-            ExtendableError = _4['default'];
-        }, function (_) {
-            _get = _['default'];
-        }, function (_2) {
-            _inherits = _2['default'];
-        }, function (_3) {
-            _classCallCheck = _3['default'];
-        }],
-        execute: function () {
-            'use strict';
+  return {
+    setters: [function (_4) {
+      ExtendableError = _4['default'];
+    }, function (_) {
+      _get = _['default'];
+    }, function (_2) {
+      _inherits = _2['default'];
+    }, function (_3) {
+      _classCallCheck = _3['default'];
+    }],
+    execute: function () {
+      /**
+       * ViewPortTooSmall Error module.
+       * @author Aditya Subramanyam
+       * @module
+       */
 
-            ViewPortTooSmallError = (function (_ExtendableError) {
-                _inherits(ViewPortTooSmallError, _ExtendableError);
+      /**
+       * ViewPortTooSmall Error
+       */
+      'use strict';
 
-                function ViewPortTooSmallError(message, fileName, lineNumber) {
-                    _classCallCheck(this, ViewPortTooSmallError);
+      ViewPortTooSmallError = (function (_ExtendableError) {
+        _inherits(ViewPortTooSmallError, _ExtendableError);
 
-                    _get(Object.getPrototypeOf(ViewPortTooSmallError.prototype), 'constructor', this).apply(this, arguments);
-                }
+        /**
+         * Create a ViewPortTooSmallError.
+         * @param {(string|string[])} message - The error message/messages.
+         * @param {(string|string[])} fileName - The file/files in which the eror originated.
+         * @param {(string|string[])} lineNumber - The line/lines at which error occurred.
+         */
 
-                return ViewPortTooSmallError;
-            })(ExtendableError);
+        function ViewPortTooSmallError(message, fileName, lineNumber) {
+          _classCallCheck(this, ViewPortTooSmallError);
 
-            _export('default', ViewPortTooSmallError);
+          _get(Object.getPrototypeOf(ViewPortTooSmallError.prototype), 'constructor', this).apply(this, arguments);
         }
-    };
+
+        /** Export ViewPortTooSmallError. */
+        return ViewPortTooSmallError;
+      })(ExtendableError);
+
+      _export('default', ViewPortTooSmallError);
+    }
+  };
 });
 
 $__System.register('9', ['3', '4', '5', '6'], function (_export) {
-    var ExtendableError, _get, _inherits, _classCallCheck, InvalidAnimationError;
+  var ExtendableError, _get, _inherits, _classCallCheck, InvalidAnimationError;
 
-    return {
-        setters: [function (_4) {
-            ExtendableError = _4['default'];
-        }, function (_) {
-            _get = _['default'];
-        }, function (_2) {
-            _inherits = _2['default'];
-        }, function (_3) {
-            _classCallCheck = _3['default'];
-        }],
-        execute: function () {
-            'use strict';
+  return {
+    setters: [function (_4) {
+      ExtendableError = _4['default'];
+    }, function (_) {
+      _get = _['default'];
+    }, function (_2) {
+      _inherits = _2['default'];
+    }, function (_3) {
+      _classCallCheck = _3['default'];
+    }],
+    execute: function () {
+      /**
+       * InvalidAnimation Error module.
+       * @author Aditya Subramanyam
+       * @module
+       */
 
-            InvalidAnimationError = (function (_ExtendableError) {
-                _inherits(InvalidAnimationError, _ExtendableError);
+      /**
+       * InvalidAnimation Error
+       */
+      'use strict';
 
-                function InvalidAnimationError(message, fileName, lineNumber) {
-                    _classCallCheck(this, InvalidAnimationError);
+      InvalidAnimationError = (function (_ExtendableError) {
+        _inherits(InvalidAnimationError, _ExtendableError);
 
-                    _get(Object.getPrototypeOf(InvalidAnimationError.prototype), 'constructor', this).apply(this, arguments);
-                }
+        /**
+         * Create a InvalidAnimationError.
+         * @param {(string|string[])} message - The error message/messages.
+         * @param {(string|string[])} fileName - The file/files in which the eror originated.
+         * @param {(string|string[])} lineNumber - The line/lines at which error occurred.
+         */
 
-                return InvalidAnimationError;
-            })(ExtendableError);
+        function InvalidAnimationError(message, fileName, lineNumber) {
+          _classCallCheck(this, InvalidAnimationError);
 
-            _export('default', InvalidAnimationError);
+          _get(Object.getPrototypeOf(InvalidAnimationError.prototype), 'constructor', this).apply(this, arguments);
         }
-    };
+
+        /** Export InvalidAnimationError. */
+        return InvalidAnimationError;
+      })(ExtendableError);
+
+      _export('default', InvalidAnimationError);
+    }
+  };
 });
 
 $__System.register("3", ["4", "5", "6"], function (_export) {
-    var _get, _inherits, _classCallCheck, ExtendableError;
+  var _get, _inherits, _classCallCheck, ExtendableError;
 
-    return {
-        setters: [function (_) {
-            _get = _["default"];
-        }, function (_2) {
-            _inherits = _2["default"];
-        }, function (_3) {
-            _classCallCheck = _3["default"];
-        }],
-        execute: function () {
-            "use strict";
+  return {
+    setters: [function (_) {
+      _get = _["default"];
+    }, function (_2) {
+      _inherits = _2["default"];
+    }, function (_3) {
+      _classCallCheck = _3["default"];
+    }],
+    execute: function () {
+      /**
+       * Extendable Error module.
+       * @author Aditya Subramanyam
+       * @module
+       */
 
-            ExtendableError = (function (_Error) {
-                _inherits(ExtendableError, _Error);
+      /**
+       * Extendable Error
+       * Base class for errors to make them extendable. 
+       * @interface
+       */
+      "use strict";
 
-                function ExtendableError(message, fileName, lineNumber) {
-                    _classCallCheck(this, ExtendableError);
+      ExtendableError = (function (_Error) {
+        _inherits(ExtendableError, _Error);
 
-                    _get(Object.getPrototypeOf(ExtendableError.prototype), "constructor", this).apply(this, arguments);
-                    this.name = this.constructor.name;
-                    this.message = message;
-                    this.stack = new Error().stack;
-                }
+        /**
+         * Create a ExtendableError.
+         * @param {(string|string[])} message - The error message/messages.
+         * @param {(string|string[])} fileName - The file/files in which the eror originated.
+         * @param {(string|string[])} lineNumber - The line/lines at which error occurred.
+         */
 
-                return ExtendableError;
-            })(Error);
+        function ExtendableError(message, fileName, lineNumber) {
+          _classCallCheck(this, ExtendableError);
 
-            _export("default", ExtendableError);
+          _get(Object.getPrototypeOf(ExtendableError.prototype), "constructor", this).apply(this, arguments);
+          this.name = this.constructor.name;
+          this.message = message;
+          this.stack = new Error().stack;
         }
-    };
+
+        /** Export ExtendableError. */
+        return ExtendableError;
+      })(Error);
+
+      _export("default", ExtendableError);
+    }
+  };
 });
 
 $__System.registerDynamic("6", [], true, function($__require, exports, module) {
@@ -851,14 +938,41 @@ $__System.registerDynamic("6", [], true, function($__require, exports, module) {
   return module.exports;
 });
 
-$__System.registerDynamic("a", ["b", "c", "d", "e"], true, function($__require, exports, module) {
+$__System.registerDynamic("a", ["b"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
   global.define = undefined;
-  var getDesc = $__require('b').getDesc,
-      isObject = $__require('c'),
-      anObject = $__require('d');
+  var isObject = $__require('b');
+  module.exports = function(it) {
+    if (!isObject(it))
+      throw TypeError(it + ' is not an object!');
+    return it;
+  };
+  global.define = __define;
+  return module.exports;
+});
+
+$__System.registerDynamic("b", [], true, function($__require, exports, module) {
+  ;
+  var global = this,
+      __define = global.define;
+  global.define = undefined;
+  module.exports = function(it) {
+    return typeof it === 'object' ? it !== null : typeof it === 'function';
+  };
+  global.define = __define;
+  return module.exports;
+});
+
+$__System.registerDynamic("c", ["d", "b", "a", "e"], true, function($__require, exports, module) {
+  ;
+  var global = this,
+      __define = global.define;
+  global.define = undefined;
+  var getDesc = $__require('d').getDesc,
+      isObject = $__require('b'),
+      anObject = $__require('a');
   var check = function(O, proto) {
     anObject(O);
     if (!isObject(proto) && proto !== null)
@@ -888,13 +1002,13 @@ $__System.registerDynamic("a", ["b", "c", "d", "e"], true, function($__require, 
   return module.exports;
 });
 
-$__System.registerDynamic("f", ["10", "a"], true, function($__require, exports, module) {
+$__System.registerDynamic("f", ["10", "c"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
   global.define = undefined;
   var $export = $__require('10');
-  $export($export.S, 'Object', {setPrototypeOf: $__require('a').set});
+  $export($export.S, 'Object', {setPrototypeOf: $__require('c').set});
   global.define = __define;
   return module.exports;
 });
@@ -923,12 +1037,12 @@ $__System.registerDynamic("13", ["11"], true, function($__require, exports, modu
   return module.exports;
 });
 
-$__System.registerDynamic("14", ["b"], true, function($__require, exports, module) {
+$__System.registerDynamic("14", ["d"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
   global.define = undefined;
-  var $ = $__require('b');
+  var $ = $__require('d');
   module.exports = function create(P, D) {
     return $.create(P, D);
   };
@@ -975,772 +1089,7 @@ $__System.registerDynamic("5", ["15", "13"], true, function($__require, exports,
   return module.exports;
 });
 
-$__System.registerDynamic("16", ["10", "12", "17"], true, function($__require, exports, module) {
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var $export = $__require('10'),
-      core = $__require('12'),
-      fails = $__require('17');
-  module.exports = function(KEY, exec) {
-    var fn = (core.Object || {})[KEY] || Object[KEY],
-        exp = {};
-    exp[KEY] = exec(fn);
-    $export($export.S + $export.F * fails(function() {
-      fn(1);
-    }), 'Object', exp);
-  };
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("18", ["19", "16"], true, function($__require, exports, module) {
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var toIObject = $__require('19');
-  $__require('16')('getOwnPropertyDescriptor', function($getOwnPropertyDescriptor) {
-    return function getOwnPropertyDescriptor(it, key) {
-      return $getOwnPropertyDescriptor(toIObject(it), key);
-    };
-  });
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("1a", ["b", "18"], true, function($__require, exports, module) {
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var $ = $__require('b');
-  $__require('18');
-  module.exports = function getOwnPropertyDescriptor(it, key) {
-    return $.getDesc(it, key);
-  };
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("1b", ["1a"], true, function($__require, exports, module) {
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  module.exports = {
-    "default": $__require('1a'),
-    __esModule: true
-  };
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("4", ["1b"], true, function($__require, exports, module) {
-  "use strict";
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var _Object$getOwnPropertyDescriptor = $__require('1b')["default"];
-  exports["default"] = function get(_x, _x2, _x3) {
-    var _again = true;
-    _function: while (_again) {
-      var object = _x,
-          property = _x2,
-          receiver = _x3;
-      _again = false;
-      if (object === null)
-        object = Function.prototype;
-      var desc = _Object$getOwnPropertyDescriptor(object, property);
-      if (desc === undefined) {
-        var parent = Object.getPrototypeOf(object);
-        if (parent === null) {
-          return undefined;
-        } else {
-          _x = parent;
-          _x2 = property;
-          _x3 = receiver;
-          _again = true;
-          desc = parent = undefined;
-          continue _function;
-        }
-      } else if ("value" in desc) {
-        return desc.value;
-      } else {
-        var getter = desc.get;
-        if (getter === undefined) {
-          return undefined;
-        }
-        return getter.call(receiver);
-      }
-    }
-  };
-  exports.__esModule = true;
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.register('1c', ['3', '4', '5', '6'], function (_export) {
-    var ExtendableError, _get, _inherits, _classCallCheck, InvalidPositionError;
-
-    return {
-        setters: [function (_4) {
-            ExtendableError = _4['default'];
-        }, function (_) {
-            _get = _['default'];
-        }, function (_2) {
-            _inherits = _2['default'];
-        }, function (_3) {
-            _classCallCheck = _3['default'];
-        }],
-        execute: function () {
-            'use strict';
-
-            InvalidPositionError = (function (_ExtendableError) {
-                _inherits(InvalidPositionError, _ExtendableError);
-
-                function InvalidPositionError(message, fileName, lineNumber) {
-                    _classCallCheck(this, InvalidPositionError);
-
-                    _get(Object.getPrototypeOf(InvalidPositionError.prototype), 'constructor', this).apply(this, arguments);
-                }
-
-                return InvalidPositionError;
-            })(ExtendableError);
-
-            _export('default', InvalidPositionError);
-        }
-    };
-});
-
-$__System.register("1d", [], function() { return { setters: [], execute: function() {} } });
-
-(function() {
-var _removeDefine = $__System.get("@@amd-helpers").createDefine();
-define("1e", [], function() {
-  return "<div class=\"tooly-container\">\n    <div class=\"body-wrapper\">\n    </div>\n</div>\n";
-});
-
-_removeDefine();
-})();
-$__System.register('1f', [], function (_export) {
-    'use strict';
-
-    var curUID;
-
-    function nextUID() {
-        return curUID++;
-    }
-
-    function createStyles(selector, styles) {
-        var styleSheet = '';
-        for (var style in styles) {
-            if (styles.hasOwnProperty(style)) {
-                styleSheet += style + ':' + styles[style] + ';';
-            }
-        }
-        return selector + '{' + styleSheet + '}';
-    }
-    return {
-        setters: [],
-        execute: function () {
-            curUID = 1;
-
-            _export('default', {
-                nextUID: nextUID,
-                createStyles: createStyles
-            });
-
-            _export('nextUID', nextUID);
-
-            _export('createStyles', createStyles);
-        }
-    };
-});
-
-$__System.register("20", [], function (_export) {
-  "use strict";
-
-  return {
-    setters: [],
-    execute: function () {
-      _export("default", window.jQuery);
-    }
-  };
-});
-
-$__System.registerDynamic("21", ["b", "22", "10", "17", "23", "24", "25", "26", "c", "27", "28"], true, function($__require, exports, module) {
-  "use strict";
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var $ = $__require('b'),
-      global = $__require('22'),
-      $export = $__require('10'),
-      fails = $__require('17'),
-      hide = $__require('23'),
-      redefineAll = $__require('24'),
-      forOf = $__require('25'),
-      strictNew = $__require('26'),
-      isObject = $__require('c'),
-      setToStringTag = $__require('27'),
-      DESCRIPTORS = $__require('28');
-  module.exports = function(NAME, wrapper, methods, common, IS_MAP, IS_WEAK) {
-    var Base = global[NAME],
-        C = Base,
-        ADDER = IS_MAP ? 'set' : 'add',
-        proto = C && C.prototype,
-        O = {};
-    if (!DESCRIPTORS || typeof C != 'function' || !(IS_WEAK || proto.forEach && !fails(function() {
-      new C().entries().next();
-    }))) {
-      C = common.getConstructor(wrapper, NAME, IS_MAP, ADDER);
-      redefineAll(C.prototype, methods);
-    } else {
-      C = wrapper(function(target, iterable) {
-        strictNew(target, C, NAME);
-        target._c = new Base;
-        if (iterable != undefined)
-          forOf(iterable, IS_MAP, target[ADDER], target);
-      });
-      $.each.call('add,clear,delete,forEach,get,has,set,keys,values,entries'.split(','), function(KEY) {
-        var IS_ADDER = KEY == 'add' || KEY == 'set';
-        if (KEY in proto && !(IS_WEAK && KEY == 'clear'))
-          hide(C.prototype, KEY, function(a, b) {
-            if (!IS_ADDER && IS_WEAK && !isObject(a))
-              return KEY == 'get' ? undefined : false;
-            var result = this._c[KEY](a === 0 ? 0 : a, b);
-            return IS_ADDER ? this : result;
-          });
-      });
-      if ('size' in proto)
-        $.setDesc(C.prototype, 'size', {get: function() {
-            return this._c.size;
-          }});
-    }
-    setToStringTag(C, NAME);
-    O[NAME] = C;
-    $export($export.G + $export.W + $export.F, O);
-    if (!IS_WEAK)
-      common.setStrong(C, NAME, IS_MAP);
-    return C;
-  };
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("29", ["2a"], true, function($__require, exports, module) {
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var cof = $__require('2a');
-  module.exports = Array.isArray || function(arg) {
-    return cof(arg) == 'Array';
-  };
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("2b", ["c", "29", "2c"], true, function($__require, exports, module) {
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var isObject = $__require('c'),
-      isArray = $__require('29'),
-      SPECIES = $__require('2c')('species');
-  module.exports = function(original, length) {
-    var C;
-    if (isArray(original)) {
-      C = original.constructor;
-      if (typeof C == 'function' && (C === Array || isArray(C.prototype)))
-        C = undefined;
-      if (isObject(C)) {
-        C = C[SPECIES];
-        if (C === null)
-          C = undefined;
-      }
-    }
-    return new (C === undefined ? Array : C)(length);
-  };
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("2d", ["2e"], true, function($__require, exports, module) {
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var defined = $__require('2e');
-  module.exports = function(it) {
-    return Object(defined(it));
-  };
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("2f", ["e", "30", "2d", "31", "2b"], true, function($__require, exports, module) {
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var ctx = $__require('e'),
-      IObject = $__require('30'),
-      toObject = $__require('2d'),
-      toLength = $__require('31'),
-      asc = $__require('2b');
-  module.exports = function(TYPE) {
-    var IS_MAP = TYPE == 1,
-        IS_FILTER = TYPE == 2,
-        IS_SOME = TYPE == 3,
-        IS_EVERY = TYPE == 4,
-        IS_FIND_INDEX = TYPE == 6,
-        NO_HOLES = TYPE == 5 || IS_FIND_INDEX;
-    return function($this, callbackfn, that) {
-      var O = toObject($this),
-          self = IObject(O),
-          f = ctx(callbackfn, that, 3),
-          length = toLength(self.length),
-          index = 0,
-          result = IS_MAP ? asc($this, length) : IS_FILTER ? asc($this, 0) : undefined,
-          val,
-          res;
-      for (; length > index; index++)
-        if (NO_HOLES || index in self) {
-          val = self[index];
-          res = f(val, index, O);
-          if (TYPE) {
-            if (IS_MAP)
-              result[index] = res;
-            else if (res)
-              switch (TYPE) {
-                case 3:
-                  return true;
-                case 5:
-                  return val;
-                case 6:
-                  return index;
-                case 2:
-                  result.push(val);
-              }
-            else if (IS_EVERY)
-              return false;
-          }
-        }
-      return IS_FIND_INDEX ? -1 : IS_SOME || IS_EVERY ? IS_EVERY : result;
-    };
-  };
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("32", ["2a", "2c"], true, function($__require, exports, module) {
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var cof = $__require('2a'),
-      TAG = $__require('2c')('toStringTag'),
-      ARG = cof(function() {
-        return arguments;
-      }()) == 'Arguments';
-  module.exports = function(it) {
-    var O,
-        T,
-        B;
-    return it === undefined ? 'Undefined' : it === null ? 'Null' : typeof(T = (O = Object(it))[TAG]) == 'string' ? T : ARG ? cof(O) : (B = cof(O)) == 'Object' && typeof O.callee == 'function' ? 'Arguments' : B;
-  };
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("33", ["32", "2c", "34", "12"], true, function($__require, exports, module) {
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var classof = $__require('32'),
-      ITERATOR = $__require('2c')('iterator'),
-      Iterators = $__require('34');
-  module.exports = $__require('12').getIteratorMethod = function(it) {
-    if (it != undefined)
-      return it[ITERATOR] || it['@@iterator'] || Iterators[classof(it)];
-  };
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("35", [], true, function($__require, exports, module) {
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var ceil = Math.ceil,
-      floor = Math.floor;
-  module.exports = function(it) {
-    return isNaN(it = +it) ? 0 : (it > 0 ? floor : ceil)(it);
-  };
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("31", ["35"], true, function($__require, exports, module) {
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var toInteger = $__require('35'),
-      min = Math.min;
-  module.exports = function(it) {
-    return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0;
-  };
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("36", ["34", "2c"], true, function($__require, exports, module) {
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var Iterators = $__require('34'),
-      ITERATOR = $__require('2c')('iterator'),
-      ArrayProto = Array.prototype;
-  module.exports = function(it) {
-    return it !== undefined && (Iterators.Array === it || ArrayProto[ITERATOR] === it);
-  };
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("37", ["d"], true, function($__require, exports, module) {
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var anObject = $__require('d');
-  module.exports = function(iterator, fn, value, entries) {
-    try {
-      return entries ? fn(anObject(value)[0], value[1]) : fn(value);
-    } catch (e) {
-      var ret = iterator['return'];
-      if (ret !== undefined)
-        anObject(ret.call(iterator));
-      throw e;
-    }
-  };
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("25", ["e", "37", "36", "d", "31", "33"], true, function($__require, exports, module) {
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var ctx = $__require('e'),
-      call = $__require('37'),
-      isArrayIter = $__require('36'),
-      anObject = $__require('d'),
-      toLength = $__require('31'),
-      getIterFn = $__require('33');
-  module.exports = function(iterable, entries, fn, that) {
-    var iterFn = getIterFn(iterable),
-        f = ctx(fn, that, entries ? 2 : 1),
-        index = 0,
-        length,
-        step,
-        iterator;
-    if (typeof iterFn != 'function')
-      throw TypeError(iterable + ' is not iterable!');
-    if (isArrayIter(iterFn))
-      for (length = toLength(iterable.length); length > index; index++) {
-        entries ? f(anObject(step = iterable[index])[0], step[1]) : f(iterable[index]);
-      }
-    else
-      for (iterator = iterFn.call(iterable); !(step = iterator.next()).done; ) {
-        call(iterator, f, step.value, entries);
-      }
-  };
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("26", [], true, function($__require, exports, module) {
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  module.exports = function(it, Constructor, name) {
-    if (!(it instanceof Constructor))
-      throw TypeError(name + ": use the 'new' operator!");
-    return it;
-  };
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("c", [], true, function($__require, exports, module) {
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  module.exports = function(it) {
-    return typeof it === 'object' ? it !== null : typeof it === 'function';
-  };
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("d", ["c"], true, function($__require, exports, module) {
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var isObject = $__require('c');
-  module.exports = function(it) {
-    if (!isObject(it))
-      throw TypeError(it + ' is not an object!');
-    return it;
-  };
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("24", ["38"], true, function($__require, exports, module) {
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var redefine = $__require('38');
-  module.exports = function(target, src) {
-    for (var key in src)
-      redefine(target, key, src[key]);
-    return target;
-  };
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("39", ["23", "24", "d", "c", "26", "25", "2f", "3a", "3b"], true, function($__require, exports, module) {
-  "use strict";
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var hide = $__require('23'),
-      redefineAll = $__require('24'),
-      anObject = $__require('d'),
-      isObject = $__require('c'),
-      strictNew = $__require('26'),
-      forOf = $__require('25'),
-      createArrayMethod = $__require('2f'),
-      $has = $__require('3a'),
-      WEAK = $__require('3b')('weak'),
-      isExtensible = Object.isExtensible || isObject,
-      arrayFind = createArrayMethod(5),
-      arrayFindIndex = createArrayMethod(6),
-      id = 0;
-  var frozenStore = function(that) {
-    return that._l || (that._l = new FrozenStore);
-  };
-  var FrozenStore = function() {
-    this.a = [];
-  };
-  var findFrozen = function(store, key) {
-    return arrayFind(store.a, function(it) {
-      return it[0] === key;
-    });
-  };
-  FrozenStore.prototype = {
-    get: function(key) {
-      var entry = findFrozen(this, key);
-      if (entry)
-        return entry[1];
-    },
-    has: function(key) {
-      return !!findFrozen(this, key);
-    },
-    set: function(key, value) {
-      var entry = findFrozen(this, key);
-      if (entry)
-        entry[1] = value;
-      else
-        this.a.push([key, value]);
-    },
-    'delete': function(key) {
-      var index = arrayFindIndex(this.a, function(it) {
-        return it[0] === key;
-      });
-      if (~index)
-        this.a.splice(index, 1);
-      return !!~index;
-    }
-  };
-  module.exports = {
-    getConstructor: function(wrapper, NAME, IS_MAP, ADDER) {
-      var C = wrapper(function(that, iterable) {
-        strictNew(that, C, NAME);
-        that._i = id++;
-        that._l = undefined;
-        if (iterable != undefined)
-          forOf(iterable, IS_MAP, that[ADDER], that);
-      });
-      redefineAll(C.prototype, {
-        'delete': function(key) {
-          if (!isObject(key))
-            return false;
-          if (!isExtensible(key))
-            return frozenStore(this)['delete'](key);
-          return $has(key, WEAK) && $has(key[WEAK], this._i) && delete key[WEAK][this._i];
-        },
-        has: function has(key) {
-          if (!isObject(key))
-            return false;
-          if (!isExtensible(key))
-            return frozenStore(this).has(key);
-          return $has(key, WEAK) && $has(key[WEAK], this._i);
-        }
-      });
-      return C;
-    },
-    def: function(that, key, value) {
-      if (!isExtensible(anObject(key))) {
-        frozenStore(that).set(key, value);
-      } else {
-        $has(key, WEAK) || hide(key, WEAK, {});
-        key[WEAK][that._i] = value;
-      }
-      return that;
-    },
-    frozenStore: frozenStore,
-    WEAK: WEAK
-  };
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("3c", ["39", "21"], true, function($__require, exports, module) {
-  "use strict";
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var weak = $__require('39');
-  $__require('21')('WeakSet', function(get) {
-    return function WeakSet() {
-      return get(this, arguments.length > 0 ? arguments[0] : undefined);
-    };
-  }, {add: function add(value) {
-      return weak.def(this, value, true);
-    }}, weak, false, true);
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("3b", [], true, function($__require, exports, module) {
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var id = 0,
-      px = Math.random();
-  module.exports = function(key) {
-    return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
-  };
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("3d", ["22"], true, function($__require, exports, module) {
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var global = $__require('22'),
-      SHARED = '__core-js_shared__',
-      store = global[SHARED] || (global[SHARED] = {});
-  module.exports = function(key) {
-    return store[key] || (store[key] = {});
-  };
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("2c", ["3d", "3b", "22"], true, function($__require, exports, module) {
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var store = $__require('3d')('wks'),
-      uid = $__require('3b'),
-      Symbol = $__require('22').Symbol;
-  module.exports = function(name) {
-    return store[name] || (store[name] = Symbol && Symbol[name] || (Symbol || uid)('Symbol.' + name));
-  };
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("27", ["b", "3a", "2c"], true, function($__require, exports, module) {
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var def = $__require('b').setDesc,
-      has = $__require('3a'),
-      TAG = $__require('2c')('toStringTag');
-  module.exports = function(it, tag, stat) {
-    if (it && !has(it = stat ? it : it.prototype, TAG))
-      def(it, TAG, {
-        configurable: true,
-        value: tag
-      });
-  };
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("3e", ["b", "3f", "27", "23", "2c"], true, function($__require, exports, module) {
-  "use strict";
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var $ = $__require('b'),
-      descriptor = $__require('3f'),
-      setToStringTag = $__require('27'),
-      IteratorPrototype = {};
-  $__require('23')(IteratorPrototype, $__require('2c')('iterator'), function() {
-    return this;
-  });
-  module.exports = function(Constructor, NAME, next) {
-    Constructor.prototype = $.create(IteratorPrototype, {next: descriptor(1, next)});
-    setToStringTag(Constructor, NAME + ' Iterator');
-  };
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("3a", [], true, function($__require, exports, module) {
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var hasOwnProperty = {}.hasOwnProperty;
-  module.exports = function(it, key) {
-    return hasOwnProperty.call(it, key);
-  };
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("17", [], true, function($__require, exports, module) {
+$__System.registerDynamic("16", [], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
@@ -1756,87 +1105,7 @@ $__System.registerDynamic("17", [], true, function($__require, exports, module) 
   return module.exports;
 });
 
-$__System.registerDynamic("28", ["17"], true, function($__require, exports, module) {
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  module.exports = !$__require('17')(function() {
-    return Object.defineProperty({}, 'a', {get: function() {
-        return 7;
-      }}).a != 7;
-  });
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("3f", [], true, function($__require, exports, module) {
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  module.exports = function(bitmap, value) {
-    return {
-      enumerable: !(bitmap & 1),
-      configurable: !(bitmap & 2),
-      writable: !(bitmap & 4),
-      value: value
-    };
-  };
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("b", [], true, function($__require, exports, module) {
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var $Object = Object;
-  module.exports = {
-    create: $Object.create,
-    getProto: $Object.getPrototypeOf,
-    isEnum: {}.propertyIsEnumerable,
-    getDesc: $Object.getOwnPropertyDescriptor,
-    setDesc: $Object.defineProperty,
-    setDescs: $Object.defineProperties,
-    getKeys: $Object.keys,
-    getNames: $Object.getOwnPropertyNames,
-    getSymbols: $Object.getOwnPropertySymbols,
-    each: [].forEach
-  };
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("23", ["b", "3f", "28"], true, function($__require, exports, module) {
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var $ = $__require('b'),
-      createDesc = $__require('3f');
-  module.exports = $__require('28') ? function(object, key, value) {
-    return $.setDesc(object, key, createDesc(1, value));
-  } : function(object, key, value) {
-    object[key] = value;
-    return object;
-  };
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("38", ["23"], true, function($__require, exports, module) {
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  module.exports = $__require('23');
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("40", [], true, function($__require, exports, module) {
+$__System.registerDynamic("17", [], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
@@ -1850,12 +1119,12 @@ $__System.registerDynamic("40", [], true, function($__require, exports, module) 
   return module.exports;
 });
 
-$__System.registerDynamic("e", ["40"], true, function($__require, exports, module) {
+$__System.registerDynamic("e", ["17"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
   global.define = undefined;
-  var aFunction = $__require('40');
+  var aFunction = $__require('17');
   module.exports = function(fn, that, length) {
     aFunction(fn);
     if (that === undefined)
@@ -1894,7 +1163,7 @@ $__System.registerDynamic("12", [], true, function($__require, exports, module) 
   return module.exports;
 });
 
-$__System.registerDynamic("22", [], true, function($__require, exports, module) {
+$__System.registerDynamic("18", [], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
@@ -1906,12 +1175,12 @@ $__System.registerDynamic("22", [], true, function($__require, exports, module) 
   return module.exports;
 });
 
-$__System.registerDynamic("10", ["22", "12", "e"], true, function($__require, exports, module) {
+$__System.registerDynamic("10", ["18", "12", "e"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
   global.define = undefined;
-  var global = $__require('22'),
+  var global = $__require('18'),
       core = $__require('12'),
       ctx = $__require('e'),
       PROTOTYPE = 'prototype';
@@ -1956,104 +1225,27 @@ $__System.registerDynamic("10", ["22", "12", "e"], true, function($__require, ex
   return module.exports;
 });
 
-$__System.registerDynamic("41", [], true, function($__require, exports, module) {
+$__System.registerDynamic("19", ["10", "12", "16"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
   global.define = undefined;
-  module.exports = true;
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("42", ["41", "10", "38", "23", "3a", "34", "3e", "27", "b", "2c"], true, function($__require, exports, module) {
-  "use strict";
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var LIBRARY = $__require('41'),
-      $export = $__require('10'),
-      redefine = $__require('38'),
-      hide = $__require('23'),
-      has = $__require('3a'),
-      Iterators = $__require('34'),
-      $iterCreate = $__require('3e'),
-      setToStringTag = $__require('27'),
-      getProto = $__require('b').getProto,
-      ITERATOR = $__require('2c')('iterator'),
-      BUGGY = !([].keys && 'next' in [].keys()),
-      FF_ITERATOR = '@@iterator',
-      KEYS = 'keys',
-      VALUES = 'values';
-  var returnThis = function() {
-    return this;
-  };
-  module.exports = function(Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCED) {
-    $iterCreate(Constructor, NAME, next);
-    var getMethod = function(kind) {
-      if (!BUGGY && kind in proto)
-        return proto[kind];
-      switch (kind) {
-        case KEYS:
-          return function keys() {
-            return new Constructor(this, kind);
-          };
-        case VALUES:
-          return function values() {
-            return new Constructor(this, kind);
-          };
-      }
-      return function entries() {
-        return new Constructor(this, kind);
-      };
-    };
-    var TAG = NAME + ' Iterator',
-        DEF_VALUES = DEFAULT == VALUES,
-        VALUES_BUG = false,
-        proto = Base.prototype,
-        $native = proto[ITERATOR] || proto[FF_ITERATOR] || DEFAULT && proto[DEFAULT],
-        $default = $native || getMethod(DEFAULT),
-        methods,
-        key;
-    if ($native) {
-      var IteratorPrototype = getProto($default.call(new Base));
-      setToStringTag(IteratorPrototype, TAG, true);
-      if (!LIBRARY && has(proto, FF_ITERATOR))
-        hide(IteratorPrototype, ITERATOR, returnThis);
-      if (DEF_VALUES && $native.name !== VALUES) {
-        VALUES_BUG = true;
-        $default = function values() {
-          return $native.call(this);
-        };
-      }
-    }
-    if ((!LIBRARY || FORCED) && (BUGGY || VALUES_BUG || !proto[ITERATOR])) {
-      hide(proto, ITERATOR, $default);
-    }
-    Iterators[NAME] = $default;
-    Iterators[TAG] = returnThis;
-    if (DEFAULT) {
-      methods = {
-        values: DEF_VALUES ? $default : getMethod(VALUES),
-        keys: IS_SET ? $default : getMethod(KEYS),
-        entries: !DEF_VALUES ? $default : getMethod('entries')
-      };
-      if (FORCED)
-        for (key in methods) {
-          if (!(key in proto))
-            redefine(proto, key, methods[key]);
-        }
-      else
-        $export($export.P + $export.F * (BUGGY || VALUES_BUG), NAME, methods);
-    }
-    return methods;
+  var $export = $__require('10'),
+      core = $__require('12'),
+      fails = $__require('16');
+  module.exports = function(KEY, exec) {
+    var fn = (core.Object || {})[KEY] || Object[KEY],
+        exp = {};
+    exp[KEY] = exec(fn);
+    $export($export.S + $export.F * fails(function() {
+      fn(1);
+    }), 'Object', exp);
   };
   global.define = __define;
   return module.exports;
 });
 
-$__System.registerDynamic("2e", [], true, function($__require, exports, module) {
+$__System.registerDynamic("1a", [], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
@@ -2067,7 +1259,7 @@ $__System.registerDynamic("2e", [], true, function($__require, exports, module) 
   return module.exports;
 });
 
-$__System.registerDynamic("2a", [], true, function($__require, exports, module) {
+$__System.registerDynamic("1b", [], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
@@ -2080,12 +1272,12 @@ $__System.registerDynamic("2a", [], true, function($__require, exports, module) 
   return module.exports;
 });
 
-$__System.registerDynamic("30", ["2a"], true, function($__require, exports, module) {
+$__System.registerDynamic("1c", ["1b"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
   global.define = undefined;
-  var cof = $__require('2a');
+  var cof = $__require('1b');
   module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it) {
     return cof(it) == 'String' ? it.split('') : Object(it);
   };
@@ -2093,13 +1285,13 @@ $__System.registerDynamic("30", ["2a"], true, function($__require, exports, modu
   return module.exports;
 });
 
-$__System.registerDynamic("19", ["30", "2e"], true, function($__require, exports, module) {
+$__System.registerDynamic("1d", ["1c", "1a"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
   global.define = undefined;
-  var IObject = $__require('30'),
-      defined = $__require('2e');
+  var IObject = $__require('1c'),
+      defined = $__require('1a');
   module.exports = function(it) {
     return IObject(defined(it));
   };
@@ -2107,128 +1299,279 @@ $__System.registerDynamic("19", ["30", "2e"], true, function($__require, exports
   return module.exports;
 });
 
-$__System.registerDynamic("34", [], true, function($__require, exports, module) {
+$__System.registerDynamic("1e", ["1d", "19"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
   global.define = undefined;
-  module.exports = {};
+  var toIObject = $__require('1d');
+  $__require('19')('getOwnPropertyDescriptor', function($getOwnPropertyDescriptor) {
+    return function getOwnPropertyDescriptor(it, key) {
+      return $getOwnPropertyDescriptor(toIObject(it), key);
+    };
+  });
   global.define = __define;
   return module.exports;
 });
 
-$__System.registerDynamic("43", [], true, function($__require, exports, module) {
+$__System.registerDynamic("d", [], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
   global.define = undefined;
-  module.exports = function(done, value) {
-    return {
-      value: value,
-      done: !!done
-    };
+  var $Object = Object;
+  module.exports = {
+    create: $Object.create,
+    getProto: $Object.getPrototypeOf,
+    isEnum: {}.propertyIsEnumerable,
+    getDesc: $Object.getOwnPropertyDescriptor,
+    setDesc: $Object.defineProperty,
+    setDescs: $Object.defineProperties,
+    getKeys: $Object.keys,
+    getNames: $Object.getOwnPropertyNames,
+    getSymbols: $Object.getOwnPropertySymbols,
+    each: [].forEach
   };
   global.define = __define;
   return module.exports;
 });
 
-$__System.registerDynamic("44", [], true, function($__require, exports, module) {
+$__System.registerDynamic("1f", ["d", "1e"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
   global.define = undefined;
-  module.exports = function() {};
+  var $ = $__require('d');
+  $__require('1e');
+  module.exports = function getOwnPropertyDescriptor(it, key) {
+    return $.getDesc(it, key);
+  };
   global.define = __define;
   return module.exports;
 });
 
-$__System.registerDynamic("45", ["44", "43", "34", "19", "42"], true, function($__require, exports, module) {
-  "use strict";
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  var addToUnscopables = $__require('44'),
-      step = $__require('43'),
-      Iterators = $__require('34'),
-      toIObject = $__require('19');
-  module.exports = $__require('42')(Array, 'Array', function(iterated, kind) {
-    this._t = toIObject(iterated);
-    this._i = 0;
-    this._k = kind;
-  }, function() {
-    var O = this._t,
-        kind = this._k,
-        index = this._i++;
-    if (!O || index >= O.length) {
-      this._t = undefined;
-      return step(1);
-    }
-    if (kind == 'keys')
-      return step(0, index);
-    if (kind == 'values')
-      return step(0, O[index]);
-    return step(0, [index, O[index]]);
-  }, 'values');
-  Iterators.Arguments = Iterators.Array;
-  addToUnscopables('keys');
-  addToUnscopables('values');
-  addToUnscopables('entries');
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("46", ["45", "34"], true, function($__require, exports, module) {
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  $__require('45');
-  var Iterators = $__require('34');
-  Iterators.NodeList = Iterators.HTMLCollection = Iterators.Array;
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("47", [], true, function($__require, exports, module) {
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  "format cjs";
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("48", ["47", "46", "3c", "12"], true, function($__require, exports, module) {
-  ;
-  var global = this,
-      __define = global.define;
-  global.define = undefined;
-  $__require('47');
-  $__require('46');
-  $__require('3c');
-  module.exports = $__require('12').WeakSet;
-  global.define = __define;
-  return module.exports;
-});
-
-$__System.registerDynamic("49", ["48"], true, function($__require, exports, module) {
+$__System.registerDynamic("20", ["1f"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
   global.define = undefined;
   module.exports = {
-    "default": $__require('48'),
+    "default": $__require('1f'),
     __esModule: true
   };
   global.define = __define;
   return module.exports;
 });
 
-$__System.register('1', ['2', '7', '8', '9', '20', '49', '1f', '1e', '1d', '1c'], function (_export) {
-    var AlreadyInitializedError, NotInitializedError, ViewPortTooSmallError, InvalidAnimationError, $, _WeakSet, nextUID, createStyles, toolyTpl, InvalidPositionError, DEFAULT_OPTIONS, TARGET_CLASS_PREFIX, CONTAINER_CLASS_PREFIX, STYLE_PREFIX, ANCHOR_HEIGHT, TOOLY_OPTIONS, POSITIONS_ACCEPTED, ANIMATIONS_ACCEPTED, ANIMATE_CLASS_PREFIX, DEFAULT_ANCHOR_STYLES, elSet, $window, $body, currWinHeight, currWinWidth;
+$__System.registerDynamic("4", ["20"], true, function($__require, exports, module) {
+  "use strict";
+  ;
+  var global = this,
+      __define = global.define;
+  global.define = undefined;
+  var _Object$getOwnPropertyDescriptor = $__require('20')["default"];
+  exports["default"] = function get(_x, _x2, _x3) {
+    var _again = true;
+    _function: while (_again) {
+      var object = _x,
+          property = _x2,
+          receiver = _x3;
+      _again = false;
+      if (object === null)
+        object = Function.prototype;
+      var desc = _Object$getOwnPropertyDescriptor(object, property);
+      if (desc === undefined) {
+        var parent = Object.getPrototypeOf(object);
+        if (parent === null) {
+          return undefined;
+        } else {
+          _x = parent;
+          _x2 = property;
+          _x3 = receiver;
+          _again = true;
+          desc = parent = undefined;
+          continue _function;
+        }
+      } else if ("value" in desc) {
+        return desc.value;
+      } else {
+        var getter = desc.get;
+        if (getter === undefined) {
+          return undefined;
+        }
+        return getter.call(receiver);
+      }
+    }
+  };
+  exports.__esModule = true;
+  global.define = __define;
+  return module.exports;
+});
 
+$__System.register('21', ['3', '4', '5', '6'], function (_export) {
+  var ExtendableError, _get, _inherits, _classCallCheck, InvalidPositionError;
+
+  return {
+    setters: [function (_4) {
+      ExtendableError = _4['default'];
+    }, function (_) {
+      _get = _['default'];
+    }, function (_2) {
+      _inherits = _2['default'];
+    }, function (_3) {
+      _classCallCheck = _3['default'];
+    }],
+    execute: function () {
+      /**
+       * InvalidPosition Error module.
+       * @author Aditya Subramanyam
+       * @module
+       */
+
+      /**
+       * InvalidPosition Error
+       */
+      'use strict';
+
+      InvalidPositionError = (function (_ExtendableError) {
+        _inherits(InvalidPositionError, _ExtendableError);
+
+        /**
+         * Create a InvalidPositionError.
+         * @param {(string|string[])} message - The error message/messages.
+         * @param {(string|string[])} fileName - The file/files in which the eror originated.
+         * @param {(string|string[])} lineNumber - The line/lines at which error occurred.
+         */
+
+        function InvalidPositionError(message, fileName, lineNumber) {
+          _classCallCheck(this, InvalidPositionError);
+
+          _get(Object.getPrototypeOf(InvalidPositionError.prototype), 'constructor', this).apply(this, arguments);
+        }
+
+        /** Export InvalidPositionError. */
+        return InvalidPositionError;
+      })(ExtendableError);
+
+      _export('default', InvalidPositionError);
+    }
+  };
+});
+
+$__System.register("22", [], function() { return { setters: [], execute: function() {} } });
+
+(function() {
+var _removeDefine = $__System.get("@@amd-helpers").createDefine();
+define("23", [], function() {
+  return "<div class=\"tooly-container\">\n    <div class=\"body-wrapper\">\n    </div>\n</div>\n";
+});
+
+_removeDefine();
+})();
+$__System.register('24', [], function (_export) {
+  /**
+   * Utils module.
+   * @author Aditya Subramanyam
+   * @module
+   */
+
+  /**
+   * A unique identifier.
+   * @type {number}
+   */
+  'use strict';
+
+  var curUID;
+
+  /**
+   * Generates a unique identifier.
+   * @return {number} A unique identifier
+   */
+  function nextUID() {
+    return curUID++;
+  }
+
+  /**
+   * Given a hashmap of styles and a selector returns a string of css styles.
+   * @param {string} selector selector
+   * @param {object} styles styles to add to the selector
+   * @return {string} string of css styles
+   */
+  function createStyles(selector, styles) {
+    var styleSheet = '';
+    for (var style in styles) {
+      if (styles.hasOwnProperty(style)) {
+        styleSheet += style + ':' + styles[style] + ';';
+      }
+    }
+    return selector + '{' + styleSheet + '}';
+  }
+  /** 
+   * Export the whole utils.
+   */
+  return {
+    setters: [],
+    execute: function () {
+      curUID = 1;
+
+      _export('default', {
+        nextUID: nextUID,
+        createStyles: createStyles
+      });
+
+      /** 
+       * Export individual utils.
+       */
+
+      _export('nextUID', nextUID);
+
+      _export('createStyles', createStyles);
+    }
+  };
+});
+
+$__System.register("25", [], function (_export) {
+  /**
+   * Jquery adapter module.
+   * @author Aditya Subramanyam
+   * @module
+   */
+
+  /** 
+   * Export jquery attached to the window.
+   */
+  "use strict";
+
+  return {
+    setters: [],
+    execute: function () {
+      _export("default", window.jQuery);
+    }
+  };
+});
+
+$__System.register('1', ['2', '7', '8', '9', '21', '22', '23', '24', '25'], function (_export) {
+    /**
+     * Tooly module.
+     * @author Aditya Subramanyam
+     * @module
+     */
+
+    /** 
+     * Default tooly options
+     * @constant
+     * @default
+     * @type {object}
+     */
+    'use strict';
+
+    var AlreadyInitializedError, NotInitializedError, ViewPortTooSmallError, InvalidAnimationError, InvalidPositionError, toolyTpl, nextUID, createStyles, $, DEFAULT_OPTIONS, TARGET_CLASS_PREFIX, CONTAINER_ID_PREFIX, STYLE_PREFIX, ANCHOR_HEIGHT, TOOLY_OPTIONS, POSITIONS_ACCEPTED, ANIMATIONS_ACCEPTED, ANIMATE_CLASS_PREFIX, DEFAULT_ANCHOR_STYLES, $window, $body, currWinHeight, currWinWidth;
+
+    /**
+     * Returns the next possible position to try
+     * @param {string} position position
+     * @return {number} index of next position in POSITIONS_ACCEPTED
+     */
     function _getNextPostion(position) {
         var currPosition = POSITIONS_ACCEPTED.indexOf(position);
         if (currPosition === POSITIONS_ACCEPTED.length - 1) {
@@ -2236,7 +1579,15 @@ $__System.register('1', ['2', '7', '8', '9', '20', '49', '1f', '1e', '1d', '1c']
         }
         return currPosition + 1;
     }
-
+    /**
+     * Checks whether the tooltip will fit in the window
+     * @param {number} containerLeft distance of container from left
+     * @param {number} containerTop distance of container from top
+     * @param {number} containerHeight container height
+     * @param {number} containerWidth container width
+     * @param {string} position position
+     * @return {boolean} whether tooltip will fit or not
+     */
     function _tooltipWillFit(containerLeft, containerTop, containerHeight, containerWidth, position) {
         switch (position) {
             case 'top':
@@ -2249,7 +1600,14 @@ $__System.register('1', ['2', '7', '8', '9', '20', '49', '1f', '1e', '1d', '1c']
                 return containerLeft >= 0 && containerTop + containerHeight <= currWinHeight;
         }
     }
-
+    /**
+     * Calculates the styles and position of the container that needs to be applied
+     * @param {jQuery} el target element
+     * @param {jQuery} container element for which the styles and position needs to be calculated
+     * @param {string} position position
+     * @param {string} preferredPosition Preferred position of tooly
+     * @return {object} object containing styles and position
+     */
     function _getStylesAndPos(_x, _x2, _x3, _x4) {
         var _again = true;
 
@@ -2312,34 +1670,58 @@ $__System.register('1', ['2', '7', '8', '9', '20', '49', '1f', '1e', '1d', '1c']
             };
         }
     }
-
+    /**
+     * Returns the id of a tooly container
+     * @param {number} id id of tooly
+     * @return {string} container id
+     */
     function _getToolyContainerId(id) {
-        return CONTAINER_CLASS_PREFIX + id;
+        return CONTAINER_ID_PREFIX + id;
     }
-
+    /**
+     * Returns the class of a tooly target
+     * @param {number} id id of tooly
+     * @return {string} target class
+     */
     function _getToolyTargetClass(id) {
         return TARGET_CLASS_PREFIX + id;
     }
-
+    /**
+     * Returns the id of a tooly style element
+     * @param {number} id id of tooly
+     * @return {string} style id
+     */
     function _getToolyStyleId(id) {
         return STYLE_PREFIX + id;
     }
-
+    /**
+     * Cleanups styles and containers appended to the document
+     * @param {jQuery} el tooly target
+     */
     function _cleanup(el) {
-        console.log('cleaning up!');
         var options = el.data(TOOLY_OPTIONS);
         var targetClass = 'tooly ' + _getToolyTargetClass(options.id);
         $body.find('.tooly.' + _getToolyTargetClass(options.id)).removeClass('tooly ' + _getToolyTargetClass(options.id));
         $body.find('#' + _getToolyContainerId(options.id) + ',\n            #' + _getToolyStyleId(options.id)).remove();
     }
-
+    /**
+     * Animates the container
+     * @param {jQuery} toolyContainer tooly container
+     * @param {string} animationClass class that needs to be applied to the tooly target
+     */
     function _animateContainer(toolyContainer, animationClass) {
         toolyContainer.addClass(ANIMATE_CLASS_PREFIX + animationClass).animate({
             opacity: 1,
             margin: 0
         }, 100);
     }
-
+    /**
+     * Returns the id of a tooly style element
+     * @param {jQuery} el tooly target
+     * @param {jQuery} toolyContainer tooly container
+     * @param {string} position position
+     * @param {string} animation animation that needs to be applied to the tooly target
+     */
     function _animate(el, toolyContainer, position, animation) {
         switch (animation) {
             case 'slide':
@@ -2349,7 +1731,10 @@ $__System.register('1', ['2', '7', '8', '9', '20', '49', '1f', '1e', '1d', '1c']
                 _animateContainer(toolyContainer, animation);
         }
     }
-
+    /**
+     * Callback for mouseover on a tooly target
+     * @listens mouseover
+     */
     function _onMouseOver() {
         var _this = $(this);
         var options = _this.data(TOOLY_OPTIONS);
@@ -2371,17 +1756,26 @@ $__System.register('1', ['2', '7', '8', '9', '20', '49', '1f', '1e', '1d', '1c']
             }
         }
     }
-
+    /**
+     * Callback for mouseout on a tooly target
+     * @listens mouseout
+     */
     function _onMouseOut() {
         var _this = $(this);
         _cleanup(_this);
     }
-
+    /**
+     * Destroy's a tooly target
+     * @param {jQuery} el tooly target
+     */
     function _destroy(el) {
         _cleanup(el);
         el.removeData(TOOLY_OPTIONS).off('mouseover', _onMouseOver).off('mouseout', _onMouseOut);
     }
-
+    /**
+     * Verifies the options provided are valid or not
+     * @param {object} tooly options
+     */
     function _verifyOptions(options) {
         if (POSITIONS_ACCEPTED.indexOf(options.position) === -1) {
             throw new InvalidPositionError(options.position + ' not recognized!');
@@ -2390,7 +1784,10 @@ $__System.register('1', ['2', '7', '8', '9', '20', '49', '1f', '1e', '1d', '1c']
             throw new InvalidAnimationError(options.animation + ' not recognized!');
         }
     }
-
+    /**
+     * Tooly internal initializer
+     * @param {object} tooly options
+     */
     function _tooly(options) {
         var _this = $(this);
         var type = $.type(options);
@@ -2416,42 +1813,97 @@ $__System.register('1', ['2', '7', '8', '9', '20', '49', '1f', '1e', '1d', '1c']
             }
         }
     }
+    /**
+     * Tooly external initializer
+     * @param {object} tooly options
+     */
     return {
-        setters: [function (_6) {
-            AlreadyInitializedError = _6['default'];
+        setters: [function (_9) {
+            AlreadyInitializedError = _9['default'];
+        }, function (_8) {
+            NotInitializedError = _8['default'];
+        }, function (_7) {
+            ViewPortTooSmallError = _7['default'];
+        }, function (_6) {
+            InvalidAnimationError = _6['default'];
         }, function (_5) {
-            NotInitializedError = _5['default'];
-        }, function (_4) {
-            ViewPortTooSmallError = _4['default'];
-        }, function (_3) {
-            InvalidAnimationError = _3['default'];
+            InvalidPositionError = _5['default'];
+        }, function (_4) {}, function (_3) {
+            toolyTpl = _3['default'];
         }, function (_2) {
-            $ = _2['default'];
+            nextUID = _2.nextUID;
+            createStyles = _2.createStyles;
         }, function (_) {
-            _WeakSet = _['default'];
-        }, function (_f) {
-            nextUID = _f.nextUID;
-            createStyles = _f.createStyles;
-        }, function (_e) {
-            toolyTpl = _e['default'];
-        }, function (_d) {}, function (_c) {
-            InvalidPositionError = _c['default'];
+            $ = _['default'];
         }],
         execute: function () {
-            'use strict';
-
             DEFAULT_OPTIONS = {
                 position: 'top',
                 animation: 'opacity'
             };
+
+            /** 
+             * Prefix of class that will be applied to the target element
+             * @constant
+             * @type {string}
+             */
             TARGET_CLASS_PREFIX = 'tooly-id-';
-            CONTAINER_CLASS_PREFIX = 'tooly-container-id-';
+
+            /** 
+             * Prefix of id that will be applied to the container element
+             * @constant
+             * @type {string}
+             */
+            CONTAINER_ID_PREFIX = 'tooly-container-id-';
+
+            /** 
+             * Prefix of id that will be applied to the style element
+             * @constant
+             * @type {string}
+             */
             STYLE_PREFIX = 'tooly-style-id-';
-            ANCHOR_HEIGHT = 17;
+
+            /** 
+             * Anchor elements visible diagonal length
+             * @constant
+             * @type {number}
+             */
+            ANCHOR_HEIGHT = 9;
+
+            /** 
+             * Key of data object stored in the element
+             * @constant
+             * @type {string}
+             */
             TOOLY_OPTIONS = 'tooly-options';
+
+            /** 
+             * Positions accepted when initializing tooly
+             * @constant
+             * @type {string[]}
+             */
             POSITIONS_ACCEPTED = ['top', 'right', 'bottom', 'left'];
+
+            /** 
+             * Animations accepted when initializing tooly
+             * @constant
+             * @type {string[]}
+             */
             ANIMATIONS_ACCEPTED = ['opacity', 'slide'];
+
+            /** 
+             * Prefix of class that will be applied to animate the container
+             * @constant
+             * @type {string}
+             */
             ANIMATE_CLASS_PREFIX = 'animate-';
+
+            /** 
+             * Default anchor styles
+             * @constant
+             * @default
+             * @type {object}
+             */
             DEFAULT_ANCHOR_STYLES = {
                 top: {
                     'bottom': '-5px',
@@ -2474,10 +1926,31 @@ $__System.register('1', ['2', '7', '8', '9', '20', '49', '1f', '1e', '1d', '1c']
                     'box-shadow': '1px -1px 0 0 #BABABC'
                 }
             };
-            elSet = new _WeakSet();
+
+            /** 
+             * Jquery wrapped window
+             * @type {object}
+             */
             $window = $(window);
+
+            /** 
+             * Jquery wrapped body
+             * @type {object}
+             */
             $body = $('body');
+
+            /** 
+             * Current window height
+             * @default
+             * @type {number}
+             */
             currWinHeight = $window.height();
+
+            /** 
+             * Current window width
+             * @default
+             * @type {number}
+             */
             currWinWidth = $window.width();
 
             $window.resize(function () {
@@ -2491,6 +1964,9 @@ $__System.register('1', ['2', '7', '8', '9', '20', '49', '1f', '1e', '1d', '1c']
 
                 return this;
             };
+            /** 
+             * Export jquery.
+             */
 
             _export('default', $);
         }
