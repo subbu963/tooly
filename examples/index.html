@@ -30,7 +30,7 @@
 </head>
 
 <body>
-    <div style="height:900px;width:100%;overflow:scroll;position:absolute;left:30px;top:90px;">
+    <div style="height:900px;width:100%;overflow-y:scroll;position:absolute;left:30px;top:90px;">
         <a id="target1" href="http://www.doge.com">doge.com</a>
         <a id="target2" href="http://www.doge.com">doge.com</a>
         <a id="target3" href="http://www.doge.com">doge.com</a>
@@ -38,24 +38,18 @@
 </body>
 <script type="text/template" id="doge">
     <div>
-        <img src="/examples/doge_dp.jpg" alt="">
+        <img src="doge_dp.jpg" alt="">
     </div>
     <p style="text-align: center;">DOGEEEEEEEEEEEEEEEEEE</p>
 </script>
-<script src="../node_modules/jquery/dist/jquery.js"></script>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> -->
-<script src="../src/jspm_packages/system.js"></script>
-<script src="../src/config.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="../dist/tooly-global.js"></script>
 <script>
-System
-    .import('tooly.js')
-    .then(function(argument) {
-        $('#target1,#target2,#target3').tooly({
-            html: $('#doge').html(),
-            position: 'left',
-            animation: 'slide'
-        });
-    });
+$('#target1,#target2,#target3').tooly({
+    html: $('#doge').html(),
+    position: 'top',
+    animation: 'slide'
+});
 </script>
 
 </html>

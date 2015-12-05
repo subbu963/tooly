@@ -1,0 +1,24 @@
+{
+    "name": "tooly-tip",
+    "description": "Minimalistic tooltip plugin written in ES6",
+    "main": "index.js",
+    "authors": [
+        "Aditya Subramanyam <subramanyam963@gmail.com>"
+    ],
+    "license": "MIT",
+    "keywords": [
+        "tooltip",
+        "popover"
+    ],
+    "moduleType": [],
+    "homepage": "",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "jspm_packages",
+        "test",
+        "tests",
+        "npm-debug.log"
+    ]
+}
