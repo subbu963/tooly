@@ -6,8 +6,8 @@ gulp.task('bundle', function () {
 
     return builder.buildStatic('./src/tooly.js', './dist/tooly.js', {
         sourceMaps: false,
-        minify: false,
-        mangle: false
+        minify: true,
+        mangle: true
     });
 });
 gulp.task('default', ['bundle']);

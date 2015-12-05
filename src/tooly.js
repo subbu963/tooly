@@ -24,26 +24,28 @@ const ANIMATION_CLASSES = {
 const TARGET_CLASS_PREFIX = 'tooly-id-';
 const CONTAINER_CLASS_PREFIX = 'tooly-container-id-';
 const STYLE_PREFIX = 'tooly-style-id-';
-const ANCHOR_HEIGHT = 10;
+const ANCHOR_HEIGHT = 17;
 const TOOLY_OPTIONS = 'tooly-options';
-const POSITIONS_ACCEPTED = ['top', 'bottom', 'left'];
-const ANCHOR_STYLE_MAP = {
+const POSITIONS_ACCEPTED = ['top', 'right', 'bottom', 'left'];
+const DEFAULT_ANCHOR_STYLES = {
     top: {
-        'left': '2em',
-        'bottom': '-0.325em',
+        'bottom': '-5px',
+        'left': '32px',
         'box-shadow': '1px 1px 0 0 #BABABC'
     },
     right: {
-
+        'top': '5px',
+        'left': '-5px',
+        'box-shadow': '-1px 1px 0 0 #BABABC'
     },
     bottom: {
-        'left': '2em',
-        'top': '-0.325em',
+        'top': '-5px',
+        'left': '32px',
         'box-shadow': '-1px -1px 0 0 #BABABC'
     },
     left: {
-        'top': '0.325em',
-        'right': '-0.325em',
+        'top': '5px',
+        'right': '-5px',
         'box-shadow': '1px -1px 0 0 #BABABC'
     }
 };
@@ -66,16 +68,16 @@ function _getNextPostion(position) {
     return currPosition + 1;
 }
 
-function _tooltipDoesFit(containerLeft, containerTop, containerHeight, position) {
+function _tooltipWillFit(containerLeft, containerTop, containerHeight, containerWidth, position) {
     switch (position) {
     case 'top':
-        return containerTop >= 0;
+        return (containerTop >= 0) && (containerLeft + containerWidth <= currWinWidth);
     case 'right':
-        return true;
+        return (containerLeft + containerWidth <= currWinWidth) && (containerTop + containerHeight <= currWinHeight);
     case 'bottom':
-        return containerTop + containerHeight <= currWinHeight;
+        return (containerTop + containerHeight <= currWinHeight) && (containerLeft + containerWidth <= currWinWidth);
     case 'left':
-        return containerLeft >= 0;
+        return (containerLeft >= 0) && (containerTop + containerHeight <= currWinHeight);
     }
 }
 
@@ -97,7 +99,7 @@ function _getStylesAndPos(el, container, position, preferredPosition) {
         containerTop -= containerHeight;
         break;
     case 'right':
-        containerWidth += ANCHOR_HEIGHT;
+        containerLeft += elWidth + ANCHOR_HEIGHT;
         break;
     case 'bottom':
         containerTop += elHeight + ANCHOR_HEIGHT;
@@ -107,7 +109,7 @@ function _getStylesAndPos(el, container, position, preferredPosition) {
         containerLeft -= containerWidth;
         break;
     }
-    if (!_tooltipDoesFit(containerLeft, containerTop, containerHeight, position)) {
+    if (!_tooltipWillFit(containerLeft, containerTop, containerHeight, containerWidth, position)) {
         let nextPosition = _getNextPostion(position);
         if (nextPosition === POSITIONS_ACCEPTED.indexOf(preferredPosition)) {
             throw new ViewPortTooSmallError('viewport too small!');
@@ -118,7 +120,10 @@ function _getStylesAndPos(el, container, position, preferredPosition) {
         'top': `${containerTop}px`,
         'left': `${containerLeft}px`
     });
-    anchorStyles = createStyles(`${containerId}:before`, ANCHOR_STYLE_MAP[position]);
+    anchorStyles = createStyles(
+        `${containerId}:before`,
+        DEFAULT_ANCHOR_STYLES[position]
+    );
     return {
         styles: containerStyles + anchorStyles,
         position: position

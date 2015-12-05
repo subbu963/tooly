@@ -30,7 +30,7 @@
 </head>
 
 <body>
-    <div style="height:900px;width:100%;overflow-y:scroll;position:absolute;left:30px;top:90px;">
+    <div style="height:900px;width:100%;overflow:scroll;position:absolute;left:30px;top:90px;">
         <a id="target1" href="http://www.doge.com">doge.com</a>
         <a id="target2" href="http://www.doge.com">doge.com</a>
         <a id="target3" href="http://www.doge.com">doge.com</a>
@@ -52,7 +52,7 @@ System
     .then(function(argument) {
         $('#target1,#target2,#target3').tooly({
             html: $('#doge').html(),
-            position: 'top'
+            position: 'right'
         });
     });
 </script>
