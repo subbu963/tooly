@@ -1,5 +1,5 @@
 # tooly
-Minimalistic tooltip plugin written in ES6
+Minimalistic tooltip plugin written in ES6. Tested on Chrome 46+.
 
 ## Installation
 ```bash
